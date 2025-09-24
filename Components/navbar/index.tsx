@@ -14,6 +14,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
+import CloseIcon from '@mui/icons-material/Close';
 
 type NavbarProps = {
   brandName?: string;
@@ -75,12 +76,17 @@ export default function Navbar({ brandName = 'Digitalks', logoSrc, logoAlt = 'Br
         onClose={toggleDrawer(false)}
         PaperProps={{ sx: { width: 260, bgcolor: '#0f1420', color: '#fff' } }}
       >
-        <Box sx={{ px: 2, py: 2 }}>
-          {logoSrc ? (
-            <Image src={logoSrc} alt={logoAlt} height={24} width={120} style={{ height: 24, width: 'auto' }} />
-          ) : (
-            <Typography variant="h6" sx={{ fontWeight: 600 }}>{brandName}</Typography>
-          )}
+        <Box sx={{ px: 2, py: 2, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <Box>
+            {logoSrc ? (
+              <Image src={logoSrc} alt={logoAlt} height={24} width={120} style={{ height: 24, width: 'auto' }} />
+            ) : (
+              <Typography variant="h6" sx={{ fontWeight: 600 }}>{brandName}</Typography>
+            )}
+          </Box>
+          <IconButton aria-label="close menu" onClick={toggleDrawer(false)} sx={{ color: '#ffffff' }}>
+            <CloseIcon />
+          </IconButton>
         </Box>
         <Divider sx={{ borderColor: 'rgba(255,255,255,0.12)' }} />
         <List>
