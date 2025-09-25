@@ -6,12 +6,55 @@ type Plan = {
   title: string;
   priceLabelTop?: string;
   price: string;
+  oldPrice?: string;
   period: string;
   badge?: string;
   popular?: boolean;
   ctaPrimary: string;
   ctaSecondary: string;
   features: string[];
+};
+
+type PricingData = {
+  [key: string]: {
+    [duration: string]: {
+      price: string;
+      oldPrice?: string;
+      period: string;
+    };
+  };
+};
+
+const pricingData: PricingData = {
+  'basic': {
+    '3m': { price: '₹ 0', period: 'for 3 months' },
+    '1y': { price: '₹ 0', period: 'for 1 year' },
+    '3y': { price: '₹ 0', period: 'for 3 years' }
+  },
+  'accounts-lite': {
+    '3m': { price: '₹ 1,600', period: 'for 3 months, per business' },
+    '1y': { price: '₹ 4,900', oldPrice: '₹ 6,400', period: 'for 1 year, per business' },
+    '3y': { price: '₹ 13,440', oldPrice: '₹ 19,200', period: 'for 3 years, per business' }
+  },
+  'accounts-gst': {
+    '3m': { price: '₹ 4,900', period: 'for 3 months, per business' },
+    '1y': { price: '₹ 14,000', oldPrice: '₹ 16,800', period: 'for 1 year, per business' },
+    '3y': { price: '₹ 33,600', oldPrice: '₹ 50,400', period: 'for 3 years, per business' }
+  },
+  'accounts': {
+    '3m': { price: '₹ 6,300', period: 'for 3 months, per business' },
+    '1y': { price: '₹ 18,000', oldPrice: '₹ 21,600', period: 'for 1 year, per business' },
+    '3y': { price: '₹ 43,200', oldPrice: '₹ 64,800', period: 'for 3 years, per business' }
+  },
+  'books-ultimate': {
+    '3m': { price: '₹ 36,000', period: 'for 3 months, per business' },
+    '1y': { price: '₹ 1,26,000', oldPrice: '₹ 1,44,000', period: 'for 1 year, per business' },
+    '3y': { price: '₹ 3,15,000', oldPrice: '₹ 4,32,000', period: 'for 3 years, per business' }
+  }
+};
+
+type AccountingPlansProps = {
+  duration: string;
 };
 
 const plans: Plan[] = [
@@ -143,8 +186,12 @@ const plans: Plan[] = [
   },
 ];
 
-export default function AccountingPlans() {
+export default function AccountingPlans({ duration }: AccountingPlansProps) {
   const [activeId, setActiveId] = React.useState<string>('basic');
+
+  const getPlanPricing = (planId: string) => {
+    return pricingData[planId]?.[duration] || pricingData[planId]?.['3m'];
+  };
 
   return (
     <Box sx={{ bgcolor: '#ffffff' }}>
@@ -158,6 +205,7 @@ export default function AccountingPlans() {
         >
           {plans.map((plan) => {
             const isActive = activeId === plan.id;
+            const currentPricing = getPlanPricing(plan.id);
             return (
             <Paper
               key={plan.id}
@@ -190,8 +238,13 @@ export default function AccountingPlans() {
                     {plan.priceLabelTop}
                   </Typography>
                 )}
-                <Typography sx={{ fontSize: 28, fontWeight: 800 }}>{plan.price}</Typography>
-                <Typography sx={{ color: '#6b7280', fontSize: 12 }}>{plan.period}</Typography>
+                {currentPricing?.oldPrice && (
+                  <Typography sx={{ color: '#9ca3af', textDecoration: 'line-through', fontSize: 12 }}>
+                    {currentPricing.oldPrice}
+                  </Typography>
+                )}
+                <Typography sx={{ fontSize: 28, fontWeight: 800 }}>{currentPricing?.price || plan.price}</Typography>
+                <Typography sx={{ color: '#6b7280', fontSize: 12 }}>{currentPricing?.period || plan.period}</Typography>
 
                 <Button
                   fullWidth

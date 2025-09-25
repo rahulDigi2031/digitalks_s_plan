@@ -197,8 +197,59 @@ const plans: Plan[] = [
   },
 ];
 
-export default function Premiumplan() {
+type PremiumplanProps = {
+  duration: string;
+};
+
+export default function Premiumplan({ duration }: PremiumplanProps) {
   const [activeId, setActiveId] = React.useState<string>('accounts-crm-pro');
+
+  type PricingData = {
+    [planId: string]: {
+      [duration: string]: {
+        price: string;
+        oldPrice?: string;
+        period: string;
+      };
+    };
+  };
+
+  const pricingData: PricingData = {
+    'accounts-crm-pro': {
+      '3m': { price: '₹ 10,150', period: 'for 3 months, per business' },
+      '1y': { price: '₹ 29,000', oldPrice: '₹ 34,900', period: 'for 1 year, per business' },
+      '3y': { price: '₹ 69,600', oldPrice: '₹ 1,04,400', period: 'for 3 years, per business' },
+    },
+    'accounts-inventory-starter': {
+      '3m': { price: '₹ 13,300', period: 'for 3 months, per business' },
+      '1y': { price: '₹ 38,000', oldPrice: '₹ 38,000', period: 'for 1 year, per business' },
+      '3y': { price: '₹ 91,200', oldPrice: '₹ 1,36,800', period: 'for 3 years, per business' },
+    },
+    'accounts-inventory': {
+      '3m': { price: '₹ 18,900', period: 'for 3 months, per business' },
+      '1y': { price: '₹ 59,000', oldPrice: '₹ 59,000', period: 'for 1 year, per business' },
+      '3y': { price: '₹ 1,29,600', oldPrice: '₹ 2,26,800', period: 'for 3 years, per business' },
+    },
+    'inventory-starter-crm-pro': {
+      '3m': { price: '₹ 10,500', period: 'for 3 months, per business' },
+      '1y': { price: '₹ 28,000', oldPrice: '₹ 28,000', period: 'for 1 year, per business' },
+      '3y': { price: '₹ 60,000', oldPrice: '₹ 1,26,000', period: 'for 3 years, per business' },
+    },
+    'inventory-crm-pro': {
+      '3m': { price: '₹ 16,500', period: 'for 3 months, per business' },
+      '1y': { price: '₹ 45,000', oldPrice: '₹ 45,000', period: 'for 1 year, per business' },
+      '3y': { price: '₹ 90,000', oldPrice: '₹ 1,98,000', period: 'for 3 years, per business' },
+    },
+    'accounts-inventory-crm-pro': {
+      '3m': { price: '₹ 22,750', period: 'for 3 months, per business' },
+      '1y': { price: '₹ 65,000', oldPrice: '₹ 65,000', period: 'for 1 year, per business' },
+      '3y': { price: '₹ 1,56,000', oldPrice: '₹ 2,34,000', period: 'for 3 years, per business' },
+    },
+  };
+
+  const getPlanPricing = (planId: string) => {
+    return pricingData[planId]?.[duration] || pricingData[planId]?.['3m'];
+  };
 
   return (
     <Box sx={{ bgcolor: '#ffffff' }}>
@@ -212,6 +263,7 @@ export default function Premiumplan() {
         >
           {plans.map((plan) => {
             const isActive = activeId === plan.id;
+            const currentPricing = getPlanPricing(plan.id);
             return (
               <Paper
                 key={plan.id}
@@ -244,8 +296,13 @@ export default function Premiumplan() {
                       {plan.priceLabelTop}
                     </Typography>
                   )}
-                  <Typography sx={{ fontSize: 28, fontWeight: 800 }}>{plan.price}</Typography>
-                  <Typography sx={{ color: '#6b7280', fontSize: 12 }}>{plan.period}</Typography>
+                  {currentPricing?.oldPrice && (
+                    <Typography sx={{ color: '#9ca3af', textDecoration: 'line-through', fontSize: 12 }}>
+                      {currentPricing.oldPrice}
+                    </Typography>
+                  )}
+                  <Typography sx={{ fontSize: 28, fontWeight: 800 }}>{currentPricing?.price || plan.price}</Typography>
+                  <Typography sx={{ color: '#6b7280', fontSize: 12 }}>{currentPricing?.period || plan.period}</Typography>
 
                   <Button
                     fullWidth

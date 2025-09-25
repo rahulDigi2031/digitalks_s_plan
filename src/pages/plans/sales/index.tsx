@@ -91,8 +91,44 @@ const plans: Plan[] = [
   },
 ];
 
-export default function SalesPlans() {
+type PricingData = {
+  [key: string]: {
+    [duration: string]: {
+      price: string;
+      oldPrice?: string;
+      period: string;
+    };
+  };
+};
+
+const pricingData: PricingData = {
+  'basic': {
+    '3m': { price: '₹ 0', period: 'for 3 months' },
+    '1y': { price: '₹ 0', period: 'for 1 year' },
+    '3y': { price: '₹ 0', period: 'for 3 years' }
+  },
+  'crm-essential': {
+    '3m': { price: '₹ 3,100', period: 'for 3 months, per business' },
+    '1y': { price: '₹ 10,500', oldPrice: '₹ 12,400', period: 'for 1 year, per business' },
+    '3y': { price: '₹ 25,200', oldPrice: '₹ 37,200', period: 'for 3 years, per business' }
+  },
+  'crm-pro': {
+    '3m': { price: '₹ 3,500', period: 'for 3 months, per business' },
+    '1y': { price: '₹ 12,000', oldPrice: '₹ 14,400', period: 'for 1 year, per business' },
+    '3y': { price: '₹ 30,000', oldPrice: '₹ 43,200', period: 'for 3 years, per business' }
+  }
+};
+
+type SalesPlansProps = {
+  duration: string;
+};
+
+export default function SalesPlans({ duration }: SalesPlansProps) {
   const [activeId, setActiveId] = React.useState<string>('basic');
+
+  const getPlanPricing = (planId: string) => {
+    return pricingData[planId]?.[duration] || pricingData[planId]?.['3m'];
+  };
 
   return (
     <Box sx={{ bgcolor: '#ffffff' }}>
@@ -106,6 +142,7 @@ export default function SalesPlans() {
         >
           {plans.map((plan) => {
             const isActive = activeId === plan.id;
+            const currentPricing = getPlanPricing(plan.id);
             return (
               <Paper
                 key={plan.id}
@@ -118,7 +155,7 @@ export default function SalesPlans() {
                   position: 'relative',
                   display: 'flex',
                   flexDirection: 'column',
-                  minHeight: 520,
+                  minHeight: 520, 
                 }}
                 onClick={() => setActiveId(plan.id)}
               >
@@ -138,13 +175,13 @@ export default function SalesPlans() {
                       {plan.priceLabelTop}
                     </Typography>
                   )}
-                  {plan.oldPrice && (
+                  {currentPricing?.oldPrice && (
                     <Typography sx={{ color: '#9ca3af', textDecoration: 'line-through', fontSize: 12 }}>
-                      {plan.oldPrice}
+                      {currentPricing.oldPrice}
                     </Typography>
                   )}
-                  <Typography sx={{ fontSize: 28, fontWeight: 800 }}>{plan.price}</Typography>
-                  <Typography sx={{ color: '#6b7280', fontSize: 12 }}>{plan.period}</Typography>
+                  <Typography sx={{ fontSize: 28, fontWeight: 800 }}>{currentPricing?.price || plan.price}</Typography>
+                  <Typography sx={{ color: '#6b7280', fontSize: 12 }}>{currentPricing?.period || plan.period}</Typography>
 
                   <Button
                     fullWidth

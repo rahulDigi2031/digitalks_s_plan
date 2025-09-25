@@ -123,9 +123,50 @@ const plans: Plan[] = [
   },
 ];
 
-export default function InventoryPlans() {
+type PricingData = {
+  [key: string]: {
+    [duration: string]: {
+      price: string;
+      oldPrice?: string;
+      period: string;
+    };
+  };
+};
+
+const pricingData: PricingData = {
+  'basic': {
+    '3m': { price: '₹ 0', period: 'for 3 months' },
+    '1y': { price: '₹ 0', period: 'for 1 year' },
+    '3y': { price: '₹ 0', period: 'for 3 years' }
+  },
+  'inventory-starter': {
+    '3m': { price: '₹ 7,000', period: 'for 3 months, per business' },
+    '1y': { price: '₹ 20,900', oldPrice: '₹ 28,000', period: 'for 1 year, per business' },
+    '3y': { price: '₹ 42,000', oldPrice: '₹ 84,000', period: 'for 3 years, per business' }
+  },
+  'inventory-lite': {
+    '3m': { price: '₹ 12,500', period: 'for 3 months, per business' },
+    '1y': { price: '₹ 34,900', oldPrice: '₹ 50,000', period: 'for 1 year, per business' },
+    '3y': { price: '₹ 75,000', oldPrice: '₹ 1,50,000', period: 'for 3 years, per business' }
+  },
+  'inventory': {
+    '3m': { price: '₹ 13,000', period: 'for 3 months, per business' },
+    '1y': { price: '₹ 38,900', oldPrice: '₹ 52,000', period: 'for 1 year, per business' },
+    '3y': { price: '₹ 78,000', oldPrice: '₹ 1,56,000', period: 'for 3 years, per business' }
+  }
+};
+
+type InventoryPlansProps = {
+  duration: string;
+};
+
+export default function InventoryPlans({ duration }: InventoryPlansProps) {
   const [activeId, setActiveId] = React.useState<string>('basic');
   const router = useRouter()
+
+  const getPlanPricing = (planId: string) => {
+    return pricingData[planId]?.[duration] || pricingData[planId]?.['3m'];
+  };
 
   return (
     <Box sx={{ bgcolor: '#ffffff' }}>
@@ -139,6 +180,7 @@ export default function InventoryPlans() {
         >
           {plans.map((plan) => {
             const isActive = activeId === plan.id;
+            const currentPricing = getPlanPricing(plan.id);
             return (
               <Paper
                 key={plan.id}
@@ -171,8 +213,13 @@ export default function InventoryPlans() {
                       {plan.priceLabelTop}
                     </Typography>
                   )}
-                  <Typography sx={{ fontSize: 28, fontWeight: 800 }}>{plan.price}</Typography>
-                  <Typography sx={{ color: '#6b7280', fontSize: 12 }}>{plan.period}</Typography>
+                  {currentPricing?.oldPrice && (
+                    <Typography sx={{ color: '#9ca3af', textDecoration: 'line-through', fontSize: 12 }}>
+                      {currentPricing.oldPrice}
+                    </Typography>
+                  )}
+                  <Typography sx={{ fontSize: 28, fontWeight: 800 }}>{currentPricing?.price || plan.price}</Typography>
+                  <Typography sx={{ color: '#6b7280', fontSize: 12 }}>{currentPricing?.period || plan.period}</Typography>
 
                   <Button
                     fullWidth

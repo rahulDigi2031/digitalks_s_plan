@@ -193,10 +193,10 @@ export default function PlansHeader() {
 
             {/* Category content area */}
             <Box sx={{ mt: 0 }}>
-                {activeCat === 'accounting' && <AccountingPlans />}
-                {activeCat === 'sales' && <CrmSales />}
-                {activeCat === 'inventory' && <InventoryPlans />}
-                {activeCat === 'premium' && <Premiumplan />}
+                {activeCat === 'accounting' && <AccountingPlans duration={activeDuration} />}
+                {activeCat === 'sales' && <CrmSales duration={activeDuration} />}
+                {activeCat === 'inventory' && <InventoryPlans duration={activeDuration} />}
+                {activeCat === 'premium' && <Premiumplan duration={activeDuration} />}
             </Box>
         </Box>
     );

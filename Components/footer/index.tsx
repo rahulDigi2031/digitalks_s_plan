@@ -1,5 +1,6 @@
 'use client';
 import { Box, Typography, Button, Link } from '@mui/material';
+import Image from 'next/image';
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 
 export default function Footer() {
@@ -25,8 +26,16 @@ export default function Footer() {
           <Box sx={{ flex: '3 1 600px', display: 'grid', gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: 'repeat(4, 1fr)' }, gap: 3 }}>
             <Box>
               <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 1 }}>Company</Typography>
-              {['About Us','Contact Us','We are Hiring','Blog','Help and Support'].map((t) => (
-                <Typography key={t} variant="body2" sx={{ color: '#4b5563', mb: 0.75 }}><Link href="#" underline="none" sx={{ color: 'inherit' }}>{t}</Link></Typography>
+              {[
+                { label: 'About Us', href: '/aboutpage' },
+                { label: 'Contact Us', href: '/contact' },
+                { label: 'We are Hiring', href: '/careers' },
+                { label: 'Blog', href: '/storynews' },
+                { label: 'Help and Support', href: '/contact' }
+              ].map((item) => (
+                <Typography key={item.label} variant="body2" sx={{ color: '#4b5563', mb: 0.75 }}>
+                  <Link href={item.href} underline="none" sx={{ color: 'inherit' }}>{item.label}</Link>
+                </Typography>
               ))}
             </Box>
             <Box>
@@ -58,11 +67,13 @@ export default function Footer() {
           <Box sx={{ maxWidth: 1280, mx: 'auto', px: { xs: 2, md: 3 }, display: 'flex', flexWrap: 'wrap', gap: 2, alignItems: 'center', justifyContent: { xs: 'center', md: 'space-between' }, textAlign: { xs: 'center', md: 'left' } }}>
             
             <Box sx={{ display: 'flex', gap: 1.5, alignItems: 'center', justifyContent: { xs: 'center', md: 'flex-start' }, width: { xs: '100%', md: 'auto' }, flexWrap: 'wrap' }}>
-              {['VISA','Mastercard','UPI','NetBanking','NEFT/IMPS'].map((p) => (
+              {/* {['VISA','Mastercard','UPI','NetBanking','NEFT/IMPS'].map((p) => (
                 <Box key={p} sx={{ px: 1.5, py: 0.5, bgcolor: '#eef2f7', borderRadius: 1 }}>
                   <Typography variant="caption" sx={{ color: '#4b5563' }}>{p}</Typography>
                 </Box>
-              ))}
+              ))} */}
+
+              <Image src="/paymentoption.webp" alt="payment methods" width={1200} height={50} style={{objectFit:"contain"  , width:"400px" , height:"50px"}}></Image>
             </Box>
             <Typography variant="body2" sx={{ color: '#6b7280', width: { xs: '100%', md: 'auto' } }}>© 2025 Digitalks. All rights reserved.</Typography>
           </Box>
