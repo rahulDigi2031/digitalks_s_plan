@@ -23,7 +23,7 @@ export default function HeroSection() {
       <Container maxWidth="lg" sx={{ textAlign: 'center' }}>
         <Stack direction="row" spacing={1} alignItems="center" justifyContent="center">
           <Image src="/diamond.svg" alt="Premium" width={18} height={18} />
-          <Typography sx={{ color: '#FCA94C', fontWeight: 600 }}>Refrens Premium</Typography>
+          <Typography sx={{ color: '#FCA94C', fontWeight: 600 }}>Digitalks Premium</Typography>
         </Stack>
 
         <Typography

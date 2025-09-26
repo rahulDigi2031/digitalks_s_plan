@@ -379,7 +379,11 @@ export default function AboutPage() {
 
       {/* media coverage section */}
       <MediaCoverage />
-
+      {/*  */}
+      
+      <Box sx={{display:"flex" , justifyContent:"center" , alignContent:"center" , mb:{md:5 , xs:3}}}>
+        <Image src="/achiveimage.webp" alt="" width={1200} height={300} style={{objectFit:"contain"}}></Image>
+      </Box>
 
       <Footer />
 

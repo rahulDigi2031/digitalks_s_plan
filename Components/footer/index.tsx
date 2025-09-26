@@ -27,8 +27,8 @@ export default function Footer() {
             <Box>
               <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 1 }}>Company</Typography>
               {[
-                { label: 'About Us', href: '/aboutpage' },
-                { label: 'Contact Us', href: '/contact' },
+                { label: 'About Us', href: 'https://digitalks.co.in/#aboutus'},
+                { label: 'Contact Us', href: 'https://digitalks.co.in/contact_us.html'},
                 { label: 'We are Hiring', href: '/careers' },
                 { label: 'Blog', href: '/storynews' },
                 { label: 'Help and Support', href: '/contact' }
@@ -36,20 +36,33 @@ export default function Footer() {
                 <Typography key={item.label} variant="body2" sx={{ color: '#4b5563', mb: 0.75 }}>
                   <Link href={item.href} underline="none" sx={{ color: 'inherit' }}>{item.label}</Link>
                 </Typography>
-              ))}
+              ))} 
             </Box>
             <Box>
               <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 1 }}>Helpful Links</Typography>
-              {['Digitalks Knowledge Base','Pricing','Become Refrens Partner','Feedback','Terms of Service','Privacy Policy','Digitalks Android App','Digitalks iOS App'].map((t) => (
-                <Typography key={t} variant="body2" sx={{ color: '#4b5563', mb: 0.75 }}><Link href="#" underline="none" sx={{ color: 'inherit' }}>{t}</Link></Typography>
+              {[
+                { label: 'Digitalks Knowledge Base', href: '#' },
+                { label: 'Pricing', href: '/plans' },
+                { label: 'Become Refrens Partner', href: '/becomerefpartner' },
+                { label: 'Feedback', href: '/contact' },
+                { label: 'Terms of Service', href: 'https://digitalks.co.in/tearms_and_conditions.html' },
+                { label: 'Privacy Policy', href: 'https://digitalks.co.in/privacy.html' },
+                { label: 'Digitalks Android App', href: '#' },
+                { label: 'Digitalks iOS App', href: '#' }
+              ].map((item) => (
+                <Typography key={item.label} variant="body2" sx={{ color: '#4b5563', mb: 0.75 }}>
+                  <Link href={item.href} underline="none" sx={{ color: 'inherit' }}>{item.label}</Link>
+                </Typography>
               ))}
             </Box>
+
             <Box>
               <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 1 }}>Products</Typography>
               {['Cloud Accounting Software','AI Accounting Agent','GST Billing Software','e-Way Bill Software','e-Invoicing Software','Invoicing Software','Quotation Software','Lead Management Software','Sales CRM','Lead to Quote Software'].map((t) => (
                 <Typography key={t} variant="body2" sx={{ color: '#4b5563', mb: 0.75 }}><Link href="#" underline="none" sx={{ color: 'inherit' }}>{t}</Link></Typography>
               ))}
             </Box>
+
             <Box>
               <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 1 }}>Services</Typography>
               {['Hire Chartered Accountant','Chartered Accountant in Mumbai','Hire Freelancers'].map((t) => (
@@ -60,6 +73,7 @@ export default function Footer() {
                 <Typography key={t} variant="body2" sx={{ color: '#4b5563', mb: 0.75 }}><Link href="#" underline="none" sx={{ color: 'inherit' }}>{t}</Link></Typography>
               ))}
             </Box>
+            
           </Box>
         </Box>
 
