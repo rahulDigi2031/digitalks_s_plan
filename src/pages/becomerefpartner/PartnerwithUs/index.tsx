@@ -95,6 +95,7 @@ export default function PartnerWithUS({ onOpenDialog }: Props){
                        <Box component="img" src="/4th.webp" alt="analytics" style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
                     </Box>
                 </Box>
+                
             </Container>
         </Box>
     )

@@ -452,10 +452,11 @@ export default function BecomeRefpartner(){
                       boxShadow: "none",
                       "&:hover": { boxShadow: "none", opacity: 0.95 },
                   }}
+                  onClick={() => router.push('/signup')}
                   >
                   Register
                   </Button>
-                  <Button variant="outlined" sx={{ flex: 1, textTransform: "none" }}>Login</Button>
+                  <Button variant="outlined" sx={{ flex: 1, textTransform: "none" }} onClick={() => router.push('/loginform')}>Login</Button>
               </Stack>
               </DialogContent>
           </Dialog>

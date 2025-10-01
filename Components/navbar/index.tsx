@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Image from 'next/image';
+import Link from 'next/link';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Drawer from '@mui/material/Drawer';
@@ -26,6 +27,13 @@ type NavbarProps = {
 export default function Navbar({ brandName = 'Digitalks', logoSrc, logoAlt = 'Brand logo', logoHeight = 20 }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const toggleDrawer = (open: boolean) => () => setMobileOpen(open);
+
+  const navItems: { label: string; path: string }[] = [
+    { label: 'Home', path: '/' },
+    { label: 'Features', path: '/featurePlans' },
+    { label: 'Pricing', path: '/plans' },
+    { label: 'Contact', path: '/contact' },
+  ];
 
   return (
     <AppBar
@@ -90,10 +98,10 @@ export default function Navbar({ brandName = 'Digitalks', logoSrc, logoAlt = 'Br
         </Box>
         <Divider sx={{ borderColor: 'rgba(255,255,255,0.12)' }} />
         <List>
-          {['Home', 'Features', 'Pricing', 'Contact'].map((text) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton onClick={toggleDrawer(false)}>
-                <ListItemText primary={text} />
+          {navItems.map((item) => (
+            <ListItem key={item.path} disablePadding>
+              <ListItemButton component={Link} href={item.path} onClick={toggleDrawer(false)}>
+                <ListItemText primary={item.label} />
               </ListItemButton>
             </ListItem>
           ))}

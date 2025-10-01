@@ -42,7 +42,6 @@ export default function AboutPage() {
       .replace(/(^-|-$)/g, "")
       .replace(/-+/g, "-");
 
-
   return (
     <Box>
         <Box sx={{bgcolor:"#7C3DDA"}}>
@@ -402,7 +401,7 @@ export default function AboutPage() {
                 <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>Solutions</Typography>
               </Stack>
               <List dense>
-                {["Cloud Accounting Software","AI Accounting Agent","GST Billing Software","Invoicing Software","Quotation Software","e-Invoicing Software","eWay Bill Software","Inventory Software","Invoicing API","Sales CRM","Lead Management Software","Download Mobile App"].map((label) => (
+                {["CloudAccountingSoftware","AI Accounting Agent","GSTBillingSoftware","InvoicingSoftware","Quotation Software","e-Invoicing Software","eWay Bill Software","Inventory Software","Invoicing API","Sales CRM","Lead Management Software","Download Mobile App"].map((label) => (
                   <ListItemButton key={label} component={Link} href={`/solutions/${toSlug(label)}`}>
                     {label}
                   </ListItemButton>
