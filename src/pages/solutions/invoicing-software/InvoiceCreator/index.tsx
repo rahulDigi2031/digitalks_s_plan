@@ -63,8 +63,11 @@ export default function InvoiceCreate() {
     <Box sx={{ 
       bgcolor: '#FFFFFF',
       pb: 15,
-      minHeight: '100vh'
+      minHeight: '900px'
     }}>
+
+      <Typography variant='h4' sx={{textAlign:"center" , fontWeight:"700"}}>Start Creating Your Invoice For FREE</Typography>
+
       {/* Header Stepper */}
       <Paper elevation={1} sx={{ p: 3, mb: 3, backgroundColor: 'white' }}>
         <Container maxWidth="lg">
@@ -83,7 +86,8 @@ export default function InvoiceCreate() {
           display: 'flex',
           flexDirection: { xs: 'column', md: 'row' },
           gap: 3,
-          opacity: isStarted ? 1 : 0.4
+          opacity: isStarted ? 1 : 0.4,
+          position: 'relative'
         }}>
           {/* Left Side - Invoice Form */}
           <Box sx={{ 
@@ -770,46 +774,44 @@ export default function InvoiceCreate() {
             </Paper>
           </Box>
 
+          {/* Overlay for invoice form only */}
+          {!isStarted && (
+            <Box sx={{ 
+              position: 'absolute', 
+              inset: 0, 
+              bgcolor: 'rgba(0,0,0,0.3)',
+              zIndex: 10,
+              display: 'flex',
+              alignItems: 'flex-end',
+              justifyContent: 'center',
+              pb: 4,
+              pointerEvents: 'auto'
+            }}>
+              <Button
+                variant="contained"
+                size="large"
+                onClick={() => setIsStarted(true)}
+                sx={{
+                  px: 6,
+                  py: 1.6,
+                  borderRadius: 3,
+                  fontSize: '1.1rem',
+                  fontWeight: 'bold',
+                  boxShadow: 6,
+                  backgroundColor: '#E2007B',
+                  color: 'white',
+                  textTransform: 'none',
+                  '&:hover': { backgroundColor: '#E2007B' },
+                }}
+              >
+                Create your First invoice
+              </Button>
+            </Box>
+          )}
+
         </Box>
       </Container>  
-
-      {/* Dialog-like overlay with fixed button */}
-      <Box sx={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 1200 }}>
-        {!isStarted && (
-          <Box sx={{ position: 'absolute', inset: 0, bgcolor: 'rgba(0,0,0,0.3)' }} />
-        )}
-        <Box
-          sx={{
-            position: 'absolute',
-            bottom: 40,
-            left: '50%',
-            transform: 'translateX(-50%)',
-            pointerEvents: 'auto'
-          }}
-        >
-          <Button
-            variant="contained"
-            size="large"
-            disabled={isStarted}
-            onClick={() => setIsStarted(true)}
-            sx={{
-              px: 6,
-              py: 1.6,
-              borderRadius: 3,
-              fontSize: '1.1rem',
-              fontWeight: 'bold',
-              boxShadow: 6,
-              backgroundColor: '#E2007B',
-              color: 'white',
-              textTransform: 'none',
-              '&:hover': { backgroundColor: '#E2007B' },
-              opacity: isStarted ? 0.6 : 1,
-            }}
-          >
-            Create your First invoice
-          </Button>
-        </Box>
-      </Box>
+      
     </Box>
   );
 };

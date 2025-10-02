@@ -21,7 +21,7 @@ export default function InvestorsPage() {
             sx={{
               fontWeight: 800,
               fontSize: { xs: "1.75rem", sm: "2rem", md: "2.5rem" },
-              color: "#111827",
+              color: "white",
             }}
           >
             Investors

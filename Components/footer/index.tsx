@@ -65,9 +65,9 @@ export default function Footer() {
 
             <Box>
               <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 1 }}>Services</Typography>
-              {['Hire Chartered Accountant','Chartered Accountant in Mumbai','Hire Freelancers'].map((t) => (
+              {/* {['Hire Chartered Accountant','Chartered Accountant in Mumbai','Hire Freelancers'].map((t) => (
                 <Typography key={t} variant="body2" sx={{ color: '#4b5563', mb: 0.75 }}><Link href="#" underline="none" sx={{ color: 'inherit' }}>{t}</Link></Typography>
-              ))}
+              ))} */}
               <Typography variant="subtitle1" sx={{ fontWeight: 700, mt: 2, mb: 1 }}>Templates</Typography>
               {['Invoice Templates','GST Invoice Format','Quotation Templates','Purchase Order Templates','Tax Invoice Templates','Delivery Challan Format'].map((t) => (
                 <Typography key={t} variant="body2" sx={{ color: '#4b5563', mb: 0.75 }}><Link href="#" underline="none" sx={{ color: 'inherit' }}>{t}</Link></Typography>

@@ -157,6 +157,7 @@ export default function StoryNews() {
                             <Button variant="contained" sx={{bgcolor:"#E2007B" , color:"white" , margin:"auto"}}>Upgrade to Premium</Button>
                         </Box>
                     </Box>
+                        
                 </Box>
             </Container>
         </Box>

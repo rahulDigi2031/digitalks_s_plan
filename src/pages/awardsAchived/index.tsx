@@ -5,6 +5,14 @@ import { Box, Container, Typography, Button, List, ListItem, ListItemIcon, TextF
 import Image from "next/image";
 import InvoiceCreate from "../solutions/invoicing-software/InvoiceCreator";
 import Footer from "../../../Components/footer";
+import BillingAutomation from "../solutions/invoicing-software/biilingautomation";
+import InvestorsPage from "../aboutpage/Investors";
+import BusinessesSupports from "../solutions/invoicing-software/Businessessupports";
+import TestimonialFeedbacks from "../testimonials";
+import ExploreinvoiceSoftware from "../solutions/invoicing-software/exploreIS";
+import BenefitsOFinvoiceSoftware from "../solutions/invoicing-software/benefitofinvcSoft";
+import OnlinePriceSoftware from "../solutions/invoicing-software/PricingOnline";
+import InvoiceFaQ from "../solutions/invoicing-software/invoiceFAQ";
 // import CheckCircleIcon from "@mui/icons-material"
 
 
@@ -214,8 +222,27 @@ const features = [
             <InvoiceCreate />
         </Box>
 
-      </main>
+      {/* AutomateBilling Feature */}
+        <BillingAutomation />
 
+        {/* investor team */}
+        <Box sx={{bgcolor:"#7757FA" , height:{md:"900px" , xs:"2170px"} , width:"100%"}}>
+            <InvestorsPage />
+        </Box>
+
+        <BusinessesSupports />
+
+        {/* RITESTIMONIALS */}
+        <TestimonialFeedbacks />
+
+        {/*  */}
+        <ExploreinvoiceSoftware />
+        {/* benefits of invoice software */}
+        <BenefitsOFinvoiceSoftware />
+
+        
+
+      </main>
     </>
   );
 }

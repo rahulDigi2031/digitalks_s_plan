@@ -4,11 +4,12 @@ import AwardsAchievedPage from "@/pages/awardsAchived";
 import Footer from "../../../../Components/footer";
 import Navbar from "../../../../Components/navbar";
 import { Box, Container, Typography, Button, Stack, Avatar } from "@mui/material";
+import OnlinePriceSoftware from "./PricingOnline";
 
 export default function InvoicingSoftware() {
     return (
         <>
-            <header>
+            <header style={{position:"fixed" , zIndex:100 , width:"100%"}}>
                 <Navbar />
             </header>
 
@@ -19,7 +20,7 @@ export default function InvoicingSoftware() {
                     sx={{
                         bgcolor: "#8E3CF7", // purple background
                         color: "white",
-                        py: { xs: 8, md: 12 },
+                        py: { xs:15, md: 22 },
                         px: 2,
                     }}
                 >
@@ -184,6 +185,9 @@ export default function InvoicingSoftware() {
                 <Box>
                     <AwardsAchievedPage />
                 </Box>
+                
+               
+                <OnlinePriceSoftware />
             </main>
 
             <footer>
