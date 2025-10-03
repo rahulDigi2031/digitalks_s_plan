@@ -27,8 +27,8 @@ export default function Footer() {
             <Box>
               <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 1 }}>Company</Typography>
               {[
-                { label: 'About Us', href: 'https://digitalks.co.in/#aboutus'},
-                { label: 'Contact Us', href: 'https://digitalks.co.in/contact_us.html'},
+                { label: 'About Us', href: 'https://digitalks.co.in/#aboutus' },
+                { label: 'Contact Us', href: 'https://digitalks.co.in/contact_us.html' },
                 { label: 'We are Hiring', href: '/careers' },
                 { label: 'Blog', href: '/storynews' },
                 { label: 'Help and Support', href: '/contact' }
@@ -36,7 +36,7 @@ export default function Footer() {
                 <Typography key={item.label} variant="body2" sx={{ color: '#4b5563', mb: 0.75 }}>
                   <Link href={item.href} underline="none" sx={{ color: 'inherit' }}>{item.label}</Link>
                 </Typography>
-              ))} 
+              ))}
             </Box>
             <Box>
               <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 1 }}>Helpful Links</Typography>
@@ -58,7 +58,7 @@ export default function Footer() {
 
             <Box>
               <Typography variant="subtitle1" sx={{ fontWeight: 700, mb: 1 }}>Products</Typography>
-              {['Cloud Accounting Software','AI Accounting Agent','GST Billing Software','e-Way Bill Software','e-Invoicing Software','Invoicing Software','Quotation Software','Lead Management Software','Sales CRM','Lead to Quote Software'].map((t) => (
+              {['Cloud Accounting Software', 'AI Accounting Agent', 'GST Billing Software', 'e-Way Bill Software', 'e-Invoicing Software', 'Invoicing Software', 'Quotation Software', 'Lead Management Software', 'Sales CRM', 'Lead to Quote Software'].map((t) => (
                 <Typography key={t} variant="body2" sx={{ color: '#4b5563', mb: 0.75 }}><Link href="#" underline="none" sx={{ color: 'inherit' }}>{t}</Link></Typography>
               ))}
             </Box>
@@ -68,18 +68,28 @@ export default function Footer() {
               {/* {['Hire Chartered Accountant','Chartered Accountant in Mumbai','Hire Freelancers'].map((t) => (
                 <Typography key={t} variant="body2" sx={{ color: '#4b5563', mb: 0.75 }}><Link href="#" underline="none" sx={{ color: 'inherit' }}>{t}</Link></Typography>
               ))} */}
+
               <Typography variant="subtitle1" sx={{ fontWeight: 700, mt: 2, mb: 1 }}>Templates</Typography>
-              {['Invoice Templates','GST Invoice Format','Quotation Templates','Purchase Order Templates','Tax Invoice Templates','Delivery Challan Format'].map((t) => (
-                <Typography key={t} variant="body2" sx={{ color: '#4b5563', mb: 0.75 }}><Link href="#" underline="none" sx={{ color: 'inherit' }}>{t}</Link></Typography>
+              {[
+                { name: 'Invoice Templates', path: '/templates/invoice-templates' },
+                { name: 'GST Invoice Format', path: '/templates/gst-invoice-format' },
+                { name: 'Quotation Templates', path: '/templates/quotation-templates' },
+                { name: 'Purchase Order Templates', path: '/templates/purchase-order-templates' },
+                { name: 'Tax Invoice Templates', path: '/templates/tax-invoice-templates' },
+                { name: 'Delivery Challan Format', path: '/templates/delivery-challan-format' }
+              ].map((item) => (
+                <Typography key={item.name} variant="body2" sx={{ color: '#4b5563', mb: 0.75 }}>
+                  <Link href={item.path} underline="none" sx={{ color: 'inherit' }}>{item.name}</Link>
+                </Typography>
               ))}
             </Box>
-            
+
           </Box>
         </Box>
 
         <Box sx={{ borderTop: '1px solid #e6ebf1', py: 2 }}>
           <Box sx={{ maxWidth: 1280, mx: 'auto', px: { xs: 2, md: 3 }, display: 'flex', flexWrap: 'wrap', gap: 2, alignItems: 'center', justifyContent: { xs: 'center', md: 'space-between' }, textAlign: { xs: 'center', md: 'left' } }}>
-            
+
             <Box sx={{ display: 'flex', gap: 1.5, alignItems: 'center', justifyContent: { xs: 'center', md: 'flex-start' }, width: { xs: '100%', md: 'auto' }, flexWrap: 'wrap' }}>
               {/* {['VISA','Mastercard','UPI','NetBanking','NEFT/IMPS'].map((p) => (
                 <Box key={p} sx={{ px: 1.5, py: 0.5, bgcolor: '#eef2f7', borderRadius: 1 }}>
@@ -87,7 +97,7 @@ export default function Footer() {
                 </Box>
               ))} */}
 
-              <Image src="/paymentoption.webp" alt="payment methods" width={1200} height={50} style={{objectFit:"contain"  , width:"400px" , height:"50px"}}></Image>
+              <Image src="/paymentoption.webp" alt="payment methods" width={1200} height={50} style={{ objectFit: "contain", width: "400px", height: "50px" }}></Image>
             </Box>
             <Typography variant="body2" sx={{ color: '#6b7280', width: { xs: '100%', md: 'auto' } }}>© 2025 Digitalks. All rights reserved.</Typography>
           </Box>

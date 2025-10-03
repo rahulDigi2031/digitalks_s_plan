@@ -135,7 +135,7 @@ const features = [
               <Image
                 src="/platformimage.webp"
                 alt="Badge 1"
-                width={1200}
+                width={900}
                 height={50}
                 style={{ height: "auto", width: "auto" , objectFit:"contain"}}
                 priority={true}

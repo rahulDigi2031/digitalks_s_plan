@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { Menu as MenuIcon, Close as CloseIcon } from "@mui/icons-material";
 import Image from "next/image";
-import MediaCoverage from "../aboutpage/mediaCoverage";
 import MediaCoverSection from "./mediacover";
 import PartnerWithUS from "./PartnerwithUs";
 import PrepaidPartnerShipModel from "./ppm";
