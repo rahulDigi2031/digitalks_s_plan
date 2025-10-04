@@ -1,3 +1,4 @@
+
 'use client'
 
 import { useState } from "react"
@@ -29,7 +30,7 @@ import AddIcon from '@mui/icons-material/Add';
 import DuplicateIcon from '@mui/icons-material/ContentCopy';
 import { Add, AttachMoney, Close, Email, Phone, Photo } from "@mui/icons-material";
 
-export default function InvoicedemoFormat(){
+export default function QuotationDemoFormat(){
     const [isStarted, setIsStarted] = useState(false);
     const [editing, setEditing] = useState(false)
     const [showFileInput, setShowFileInput] = useState(false);
@@ -59,9 +60,9 @@ export default function InvoicedemoFormat(){
       const removeItem = (index: number) => {
         setItems(prev => prev.filter((_, i) => i !== index));
       };
-    
+
       const steps = ['Add Invoice Details', 'Add Banking Details', 'Design & Share (optional)'];
-    
+
     return(
         <>
            {/* Header Stepper */}
@@ -94,7 +95,7 @@ export default function InvoicedemoFormat(){
                   {/* Invoice Header */}
                   <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
                     <Typography variant="h5" fontWeight="bold" sx={{ color: '#000' }}>
-                      Invoice *
+                      Quotation *
                     </Typography>
                     <Button 
                       startIcon={<Photo />} 

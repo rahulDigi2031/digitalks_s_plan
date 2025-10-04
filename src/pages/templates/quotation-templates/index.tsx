@@ -1,33 +1,30 @@
-
 'use client'
 
-import { AppBar, Box, Container, Dialog, DialogContent, DialogTitle, Divider, Drawer, List, ListItemButton, Stack, Toolbar } from "@mui/material"
+import { AppBar, Box, Container, Dialog, DialogContent, DialogTitle, Divider, Drawer, List, ListItemButton, Stack, Toolbar, Typography } from "@mui/material"
 import { motion } from "framer-motion";
-import { Typography } from "@mui/material";
 import { Button } from "@mui/material";
 import { IconButton } from "@mui/material";
-import { Avatar } from "@mui/material";
 import { Menu as MenuIcon, Close as CloseIcon } from "@mui/icons-material";
-import { useRouter } from "next/router";
+import { Avatar } from "@mui/material";
 import React from "react";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
-import InvoicedemoFormat from "./templetedemoinvoice";
-import InvoiceGallery from "./invoicegallery";
-import KeyFeatures from "./keyfeatures";
-import InformationInvoice from "./informationINV";
+import QuotationDemoFormat from "./QuotationInvoicEformat";
+import QuotationGallary from "./quotationGallary";
+import QuotationKeyFeature from "./quotationKeyfeatures";
+import Quotation from "./quotationTempl";
+import ExploreQuotation from "./exploreQuotation";
+import FAQ from "@/pages/becomerefpartner/faqs";
 import Footer from "../../../../Components/footer";
-import InvoiceFaQ from "@/pages/solutions/invoicing-software/invoiceFAQ";
-import Freeinvoice from "./freeInvoice";
 
 
-export default function InvoiceTemplates() {
+export default function QuotationTemplates() {
     const [productsOpen, setProductsOpen] = React.useState(false);
     const [accountOpen, setAccountOpen] = React.useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
     const [open, setOpen] = React.useState(false);
     const router = useRouter()
-
 
     const toSlug = (label: string) =>
         label
@@ -175,27 +172,32 @@ export default function InvoiceTemplates() {
 
                 <main>
                     {/* Hero Section */}
-                    <Box sx={{ bgcolor: '#7C3DDA', pt: { xs: 15, md: 13 }, pb: { xs: 6, md: 10 } }}>
+                    <Box sx={{ bgcolor: '#7C3DDA', pt: { xs: 15, md: 18 }, pb: { xs: 6, md: 10 } }}>
                         <Container maxWidth="lg">
-                            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: { xs: 'flex-start', md: 'center' }, justifyContent: 'space-between', gap: 6 }}>
+                            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: { xs: 'flex-start', md: 'center' }, justifyContent: 'space-between', gap:3 }}>
                                 {/* Left - Text */}
                                 <Box sx={{ maxWidth: 640 }}>
-                                    <Typography variant="h3" sx={{ fontSize: { xs: 38, md: 56 }, lineHeight: { xs: 1.15, md: 1.1 }, fontWeight: 800, color: '#fff', letterSpacing: -0.5 }}>
-                                        Free Invoice Format Templates
+                                    <Typography variant="h4" sx={{ fontSize: { xs: 38, md: 38 }, lineHeight: { xs: 1.15, md: 1.1 }, fontWeight: 700, color: '#fff', letterSpacing: -0.5 }}>
+                                        Quotation Templates for FREE
                                     </Typography>
                                     <Typography sx={{ mt: 3, color: 'rgba(255,255,255,0.9)', fontSize: { xs: 16, md: 18 } }}>
-                                        Get your free, professional invoice format and customize, download,<br /> print, or email invoices for free.
+                                        Create Quotation using Templates:
+                                        Download printable quotation templates in PDF format, customize them with your logo, company details, and pricing, and access them anytime from your desktop or mobile.
                                     </Typography>
                                     <Button onClick={() => setOpen(true)} variant="contained" sx={{ mt: 4, px: 3, py: 1.25, textTransform: 'none', fontWeight: 700, background: '#DF007A', boxShadow: 'none', '&:hover': { background: '#C7006B', boxShadow: 'none' } }}>
-                                        Create Invoice For FREE
+                                        Create Quotation
                                     </Button>
+                                    <Typography sx={{ mt: 3, color: 'rgba(255,255,255,0.9)', fontSize: { xs: 16, md: 18 } }}>
+                                    Our Users Rate Refrens Quotation⭐ 4.8/5 based on 11357+ Ratings
+                                    </Typography>
+
                                 </Box>
 
                                 {/* Right - Collage */}
                                 <Box
                                     sx={{
                                         position: { xs: "relative", md: "absolute" }, // mobile pe relative, desktop pe absolute
-                                        top: { md: 20 },
+                                        top: { md: 80 },
                                         right: { md: 380 },
                                         width: { xs: "100%", md: 450 },
                                         height: { xs: 220, md: 400 },
@@ -213,25 +215,30 @@ export default function InvoiceTemplates() {
                         </Container>
                     </Box>
 
-                    {/*  */}
-                    <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", bgcolor: "#E9E0F8", width: "100%", height: "70px" }}>
-                        Our Users Rate Refrens Invoice⭐ 4.8/5 based on 11700+ Ratings
+                    {/* content section */}
+                   <Container maxWidth="lg">
+                   <Box>
+                        <Typography variant="body1" sx={{fontWeight:"600" , fontSize:"28px" , textAlign:"center"}}>
+                           Quotation Format in PDF (Add quotation details and download it in PDF format.)
+                        </Typography>
                     </Box>
 
-                    {/* template inv format */}
-                    <InvoicedemoFormat />
+                  
+                   </Container>
+                     {/* add below side invoice format */}
+                     <QuotationDemoFormat />   
 
-                    <InvoiceGallery />
+                     <Box sx={{bgcolor:"#F7F9FA" , width:"100%" , height:{md:"900px" , xs:""} , mt:3}}>
+                        <QuotationGallary />      
+                     </Box> 
 
-                    <KeyFeatures />
-                    {/*  */}
+                     <QuotationKeyFeature />
 
-                    <InformationInvoice />
+                     <Quotation />
 
-                    <InvoiceFaQ />
+                     <ExploreQuotation />
 
-                    <Freeinvoice />
-
+                     <FAQ />
 
                 </main>
 
@@ -427,11 +434,9 @@ export default function InvoiceTemplates() {
                     </DialogContent>
                 </Dialog>
 
-
                 <footer>
                     <Footer />
                 </footer>
-
             </Box>
         </>
     )
