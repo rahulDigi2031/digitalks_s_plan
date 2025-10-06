@@ -30,7 +30,7 @@ import AddIcon from '@mui/icons-material/Add';
 import DuplicateIcon from '@mui/icons-material/ContentCopy';
 import { Add, AttachMoney, Close, Email, Phone, Photo } from "@mui/icons-material";
 
-export default function QuotationDemoFormat(){
+export default function PurchaseOrderFORMAT(){
     const [isStarted, setIsStarted] = useState(false);
     const [editing, setEditing] = useState(false)
     const [showFileInput, setShowFileInput] = useState(false);
@@ -44,7 +44,7 @@ export default function QuotationDemoFormat(){
         sgst: string;
         total: string;
       }>>([
-        { name: '', hsn: '', qty: '1', rate: '10', amount: '10', cgst: '0.90', sgst: '0.90', total: '11.80' }
+        { name: '', hsn: '', qty: '1', rate: '12', amount: '12', cgst: '1.50', sgst: '1.50', total: '15.00' }
       ]);
 
 
@@ -53,7 +53,7 @@ export default function QuotationDemoFormat(){
       };
     
       const addItemRow = () => {
-        const template = items[0] ?? { name: '', hsn: '', qty: '1', rate: '13', amount: '10', cgst: '1.00', sgst: '1.00', total: '15.00' };
+        const template = items[0] ?? { name: '', hsn: '', qty: '1', rate: '12', amount: '12', cgst: '1.50', sgst: '1.50', total: '15.00' };
         setItems(prev => [...prev, { ...template }]);
       };
     
@@ -94,8 +94,8 @@ export default function QuotationDemoFormat(){
                 <Paper elevation={2} sx={{ p: 3, backgroundColor: 'white' }}>
                   {/* Invoice Header */}
                   <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
-                    <Typography variant="h5" fontWeight="bold" sx={{ color: '#000' }}> 
-                      Quotation * 
+                    <Typography variant="h5" fontWeight="bold" sx={{ color: 'GRAY' }}> 
+                      Purchase Order 
                     </Typography> 
                     <Button 
                       startIcon={<Photo />} 
@@ -665,20 +665,20 @@ export default function QuotationDemoFormat(){
                       <Paper variant="outlined" sx={{ p: 2, borderRadius: 1, borderColor: '#E0E0E0' }}>
                         <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
                           <Typography variant="body2" color="text.secondary" sx={{ color: '#666' }}>Amount</Typography>
-                          <Typography variant="body2" sx={{ fontWeight: 500 }}>₹10.00</Typography>
+                          <Typography variant="body2" sx={{ fontWeight: 500 }}>₹12.00</Typography>
                         </Box>
                         <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 0.5 }}>
                           <Typography variant="body2" color="text.secondary" sx={{ color: '#666' }}>CGST</Typography>
-                          <Typography variant="body2" sx={{ fontWeight: 500 }}>₹0.90</Typography>
+                          <Typography variant="body2" sx={{ fontWeight: 500 }}>₹1.50</Typography>
                         </Box>
                         <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
                           <Typography variant="body2" color="text.secondary" sx={{ color: '#666' }}>SGST</Typography>
-                          <Typography variant="body2" sx={{ fontWeight: 500 }}>₹0.90</Typography>
+                          <Typography variant="body2" sx={{ fontWeight: 500 }}>₹1.50</Typography>
                         </Box>
                         <Divider sx={{ my: 1, borderColor: '#E0E0E0' }} />
                         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
                           <Typography variant="subtitle1" fontWeight={700} sx={{ color: '#000' }}>Total (INR)</Typography>
-                          <Typography variant="h6" fontWeight={700} sx={{ color: '#000' }}>₹11.80</Typography>
+                          <Typography variant="h6" fontWeight={700} sx={{ color: '#000' }}>₹15.00</Typography>
                         </Box>
                       </Paper>
                     </Box>
@@ -727,52 +727,6 @@ export default function QuotationDemoFormat(){
 
                 </Paper>
               </Box>
-
-              {/* Right Side - Preview/Additional Options */}
-              {/* <Box sx={{ 
-                flex: { xs: 1, md: 1/3 }
-              }}>
-                <Paper elevation={2} sx={{ p: 3, backgroundColor: 'white', height: 'fit-content', position: 'sticky', top: 20 }}>
-                  <Typography variant="h6" gutterBottom sx={{ color: '#000', fontWeight: 600 }}>
-                    Invoice Preview
-                  </Typography>
-                  <Box sx={{ 
-                    border: '2px dashed #E0E0E0', 
-                    borderRadius: 1, 
-                    height: 400, 
-                    display: 'flex', 
-                    flexDirection: 'column',
-                    alignItems: 'center', 
-                    justifyContent: 'center',
-                    gap: 2,
-                    backgroundColor: '#FAFAFA',
-                    cursor: 'pointer',
-                    '&:hover': { backgroundColor: '#F0F0F0' }
-                  }} onClick={() => setShowFileInput(true)}>
-                    {showFileInput ? (
-                      <TextField
-                        type="file"
-                        variant="outlined"
-                        size="small"
-                        fullWidth
-                        sx={{ 
-                          '& .MuiOutlinedInput-root': { 
-                            borderRadius: 1,
-                            maxWidth: 300
-                          }
-                        }}
-                        inputProps={{
-                          accept: '.pdf,.doc,.docx,.jpg,.jpeg,.png'
-                        }}
-                      />
-                    ) : (
-                      <Typography variant="body2" color="text.secondary" sx={{ color: '#999', textAlign: 'center' }}>
-                        Your invoice preview will appear here as you fill in the details above.
-                      </Typography>
-                    )}
-                  </Box>
-                </Paper>
-              </Box> */}
 
               {/* Overlay for invoice form only */}
               {!isStarted && (

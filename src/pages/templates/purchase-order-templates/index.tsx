@@ -1,34 +1,31 @@
 'use client'
 
-import { AppBar, Box, Container, Dialog, DialogContent, DialogTitle, Divider, Drawer, List, ListItemButton, Stack, Toolbar, Typography } from "@mui/material"
+import { useRouter } from "next/router";
+import React from "react";
+import { AppBar, Box, Container, Dialog, DialogContent, DialogTitle, Divider, Drawer, IconButton, List, ListItemButton, Stack, Toolbar, Typography } from "@mui/material"
 import { motion } from "framer-motion";
 import { Button } from "@mui/material";
-import { IconButton } from "@mui/material";
 import { Menu as MenuIcon, Close as CloseIcon } from "@mui/icons-material";
 import { Avatar } from "@mui/material";
-import React from "react";
-import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
-import QuotationDemoFormat from "./QuotationInvoicEformat";
-import QuotationGallary from "./quotationGallary";
-import QuotationKeyFeature from "./quotationKeyfeatures";
-import Quotation from "./quotationTempl";
-import ExploreQuotation from "./exploreQuotation";
+import PurchaseOrderFORMAT from "./PoFormat";
+import POTemplateGallery from "./POtemplateGallery";
+import POFeature from "./POFeatures";
+import AdvancedPO from "./AdvancedPO";
+import POpricing from "./POpricing";
+import POTable from "./POTable";
+import PurchaseFaQ from "./POFAQ";
+import Poimage from "./POimg";
+import FreePOFormat from "./FreePoFormat";
 import Footer from "../../../../Components/footer";
-import QuotationFAQ from "./quotationFAQ";
-import QuotationFormat from "./quotationformat";
-import QuotationElement from "./QoutationElements";
-import DigitalQuotation from "./quotationDigital";
-import ProfessionalQuotation from "./professionalQuotation";
 
-
-export default function QuotationTemplates() {
-    const [productsOpen, setProductsOpen] = React.useState(false);
-    const [accountOpen, setAccountOpen] = React.useState(false);
-    const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
-    const [open, setOpen] = React.useState(false);
-    const router = useRouter()
+export default function PoT(){
+      const [productsOpen, setProductsOpen] = React.useState(false);
+        const [accountOpen, setAccountOpen] = React.useState(false);
+        const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+        const [open, setOpen] = React.useState(false);
+        const router = useRouter()
 
     const toSlug = (label: string) =>
         label
@@ -37,10 +34,35 @@ export default function QuotationTemplates() {
             .replace(/(^-|-$)/g, "")
             .replace(/-+/g, "-");
 
-    return (
+// for animation text and image
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.1
+    }
+  }
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: 'easeOut'
+    }
+  }
+}
+
+
+    return(
         <>
             <Box>
-                <header>
+                 <header>
                     <AppBar position="fixed" elevation={0} sx={{ bgcolor: "#7C3DDA", zIndex: 1200 }}>
                         <Container maxWidth="xl">
                             <Toolbar sx={{
@@ -176,25 +198,21 @@ export default function QuotationTemplates() {
 
                 <main>
                     {/* Hero Section */}
-                    <Box sx={{ bgcolor: '#7C3DDA', pt: { xs: 15, md: 18 }, pb: { xs: 6, md: 10 } }}>
+                    <Box sx={{ bgcolor: '#7C3DDA', pt: { xs: 15, md: 20 }, pb: { xs: 6, md: 10 } }}>
                         <Container maxWidth="lg">
                             <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: { xs: 'flex-start', md: 'center' }, justifyContent: 'space-between', gap:3 }}>
                                 {/* Left - Text */}
                                 <Box sx={{ maxWidth: 640 }}>
-                                    <Typography variant="h4" sx={{ fontSize: { xs: 38, md: 38 }, lineHeight: { xs: 1.15, md: 1.1 }, fontWeight: 700, color: '#fff', letterSpacing: -0.5 }}>
-                                        Quotation Templates for FREE
+                                    <Typography variant="h4" sx={{ fontSize: { xs: 38, md: 38 }, lineHeight: { xs: 1, md: 1 }, fontWeight: 700, color: '#fff', letterSpacing: -0.5 }}>
+                                        Free Purchase Order Format | PO Template in PDF
                                     </Typography>
-                                    <Typography sx={{ mt: 3, color: 'rgba(255,255,255,0.9)', fontSize: { xs: 16, md: 18 } }}>
-                                        Create Quotation using Templates:
-                                        Download printable quotation templates in PDF format, customize them with your logo, company details, and pricing, and access them anytime from your desktop or mobile.
+                                    <Typography sx={{ mt: 3, color: 'rgba(255,255,255,0.9)', fontSize: { xs: 14, md: 16 } }}>
+                                      With Refrens, you can easily create purchase orders in minutes, download them for free in PDF, email them directly to your suppliers, and even track your orders and inventory—all in one place!
                                     </Typography>
                                     <Button onClick={() => setOpen(true)} variant="contained" sx={{ mt: 4, px: 3, py: 1.25, textTransform: 'none', fontWeight: 700, background: '#DF007A', boxShadow: 'none', '&:hover': { background: '#C7006B', boxShadow: 'none' } }}>
-                                        Create Quotation
+                                        Create Purchase Order
                                     </Button>
-                                    <Typography sx={{ mt: 3, color: 'rgba(255,255,255,0.9)', fontSize: { xs: 16, md: 18 } }}>
-                                    Our Users Rate Refrens Quotation⭐ 4.8/5 based on 11357+ Ratings
-                                    </Typography>
-
+                                   
                                 </Box>
 
                                 {/* Right - Collage */}
@@ -202,7 +220,7 @@ export default function QuotationTemplates() {
                                     sx={{
                                         position: { xs: "relative", md: "absolute" }, // mobile pe relative, desktop pe absolute
                                         top: { md: 80 },
-                                        right: { md: 380 },
+                                        right: { md: 350 , xs:"auto"},
                                         width: { xs: "100%", md: 450 },
                                         height: { xs: 220, md: 400 },
                                         mx: { xs: "auto", md: 0 }, // mobile me center align
@@ -219,42 +237,38 @@ export default function QuotationTemplates() {
                         </Container>
                     </Box>
 
-                    {/* content section */}
-                   <Container maxWidth="lg">
-                   <Box>
-                        <Typography variant="body1" sx={{fontWeight:"600" , fontSize:"28px" , textAlign:"center"}}>
-                           Quotation Format in PDF (Add quotation details and download it in PDF format.)
-                        </Typography>
-                    </Box>
+                    {/*  currently set static after as per instruction channge convert into Digitalks */}
+                     <Box sx={{bgcolor:"#E9E0F8" , width:"100%", height:"70px" , display:"flex" , justifyContent:"center" , alignItems:"center"}}>
+                        <Container maxWidth="lg">
+                            <Typography variant="body1">Our Users Rate Refrens PO ⭐ 4.8/5 based on 11700+ Ratings</Typography>
+                        </Container>
+                     </Box>
 
+                    {/*Component chunk wise scetion set below side */}
+                    <PurchaseOrderFORMAT />
+                   
+                   <Box sx={{bgcolor:"#F7F9FA" , width:"100%" , height:{md:"900px" , xs:""} , mt:3 , mb:{md:5 , xs:0}}}>
+                        <POTemplateGallery />
+                   </Box>
+
+                   <POFeature />
+                    
+                   <AdvancedPO />
+                   
+                   <POpricing />
+
+                   <POTable />
+                    
+                   <PurchaseFaQ />
+
+                   <Poimage />
+
+                   <FreePOFormat/>
+
+                
+
+                
                   
-                   </Container>
-                     {/* add below side invoice format */}
-                     <QuotationDemoFormat />   
-
-                     <Box sx={{bgcolor:"#F7F9FA" , width:"100%" , height:{md:"900px" , xs:""} , mt:3}}>
-                        <QuotationGallary />      
-                     </Box> 
-
-                     <QuotationKeyFeature />
-
-                     <Quotation />
-
-                     <ExploreQuotation />
-
-                    <QuotationFAQ />
-
-                    <QuotationFormat />
-
-                    <QuotationElement />
-
-                    <DigitalQuotation />
-
-                    <ProfessionalQuotation />
-
-                </main>
-
-
                 {/* Mobile Drawer Menu */}
                 <Drawer
                     anchor="right"
@@ -445,6 +459,7 @@ export default function QuotationTemplates() {
                         </Stack>
                     </DialogContent>
                 </Dialog>
+                </main>
 
                 <footer>
                     <Footer />
