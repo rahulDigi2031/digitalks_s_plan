@@ -58,7 +58,6 @@ const itemVariants = {
   }
 }
 
-
     return(
         <>
             <Box>
@@ -265,10 +264,9 @@ const itemVariants = {
 
                    <FreePOFormat/>
 
-                
 
                 
-                  
+                
                 {/* Mobile Drawer Menu */}
                 <Drawer
                     anchor="right"
@@ -468,3 +466,4 @@ const itemVariants = {
         </>
     )
 }
+

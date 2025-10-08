@@ -137,8 +137,9 @@ const features = [
                 alt="Badge 1"
                 width={900}
                 height={50}
-                style={{ height: "auto", width: "auto" , objectFit:"contain"}}
-                priority={true}
+                
+                style={{ height: "auto", width: "100%" , objectFit:"fill"}}
+                priority={false}
               />
             </Box>
           </Box>

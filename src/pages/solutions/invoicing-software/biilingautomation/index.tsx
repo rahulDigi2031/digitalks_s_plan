@@ -90,7 +90,7 @@ export default function BillingAutomation() {
   const isTablet = useMediaQuery(theme.breakpoints.down('lg'));
 
   return (
-    <Box sx={{ py: { xs: 4, md: 8 }, backgroundColor: '#FFFFFF' }}>
+    <Box sx={{ py: { xs: 4, md: 8 }, backgroundColor: '#161C26' }}>
       <Container maxWidth="lg">
         {/* Header Section */}
         <Box sx={{ textAlign: 'center', mb: { xs: 4, md: 6 } }}>
@@ -99,7 +99,7 @@ export default function BillingAutomation() {
             component="h1"
             sx={{
               fontWeight: 'bold',
-              color: '#2c3e50',
+              color: '#f7f7f7',
               fontSize: { xs: '1.8rem', sm: '2.2rem', md: '2.5rem', lg: '2.5rem' },
               lineHeight: 1.2,
               mb: 2
@@ -130,12 +130,12 @@ export default function BillingAutomation() {
                 display: 'flex',
                 flexDirection: 'column',
                 p: { xs: 2, md: 3 },
-                backgroundColor: 'white',
+                backgroundColor: '#161C26',
                 boxShadow: 'none',
               }}
             >
               {/* Icon */}
-              <Box sx={{ mb: 2, display: 'flex', justifyContent: 'center' }}>
+              <Box sx={{ mb: 2, display: 'flex', justifyContent: 'center'}}>
                 {feature.icon}
               </Box>
 
@@ -145,7 +145,7 @@ export default function BillingAutomation() {
                 component="h3"
                 sx={{
                   fontWeight: 'bold',
-                  color: '#2c3e50',
+                  color: '#f7f7f7',
                   mb: 2,
                   fontSize: { xs: '1rem', md: '1.1rem' },
                   lineHeight: 1.3,
@@ -159,7 +159,7 @@ export default function BillingAutomation() {
               <Typography
                 variant="body2"
                 sx={{
-                  color: '#5a6c7d',
+                  color: '#f7f7f7',
                   lineHeight: 1.6,
                   fontSize: { xs: '0.875rem', md: '0.9rem' },
                   flexGrow: 1,
