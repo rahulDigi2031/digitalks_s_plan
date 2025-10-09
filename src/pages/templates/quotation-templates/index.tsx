@@ -182,7 +182,7 @@ export default function QuotationTemplates() {
                                 {/* Left - Text */}
                                 <Box sx={{ maxWidth: 640 }}>
                                     <Typography variant="h4" sx={{ fontSize: { xs: 38, md: 38 }, lineHeight: { xs: 1.15, md: 1.1 }, fontWeight: 700, color: '#fff', letterSpacing: -0.5 }}>
-                                        Quotation Templates for FREE
+                                        Best Sales CRM Software
                                     </Typography>
                                     <Typography sx={{ mt: 3, color: 'rgba(255,255,255,0.9)', fontSize: { xs: 16, md: 18 } }}>
                                         Create Quotation using Templates:
@@ -226,6 +226,7 @@ export default function QuotationTemplates() {
                            Quotation Format in PDF (Add quotation details and download it in PDF format.)
                         </Typography>
                     </Box>
+
 
                   
                    </Container>

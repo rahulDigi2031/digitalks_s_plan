@@ -39,7 +39,7 @@ export default function InvoiceGallery() {
                         </Typography>
                         <Box sx={{ position: 'relative', height: 300, width: '100%' }}>
                             <Image
-                               src="/Quot02.webp"
+                               src="/quot02.webp"
                                 alt="Letterhead Invoice Template"
                                 fill
                                 style={{ objectFit: 'contain' }}

@@ -31,6 +31,16 @@ import DeliveryChallanExcelFormat from "./excelDeliveryChallanFormat";
 import FeatureDeliveryChallan from "./deliveryChallanFeatures";
 import AdvanceFeatureDeliveryChallan from "./advanceFeatureDeliveryChallan";
 import Footer from "../../../../Components/footer";
+import HappyusersFeedback from "./happyUsersfeedback";
+import UserFeedbacks from "./happyUsersfeedback";
+import ApprovedSoftware from "./highratedsoftwareimage";
+import DeliveryChallanFaQ from "./deliveryChallanFAQ";
+import BusinessSoftware from "./businessSoftware";
+import InvoiceGeneratorAutomate from "./InvoiceGenerator";
+import OnlineDeliveryChallanCreate from "./deliveryChallanCreateOnline";
+import ElementsOFDeliveryChallan from "./elementsofDeliveryChallan";
+import DeliveryChallanGroup from "./delivryChallanGroup";
+import DiffChallanVSinvoice from "./deliverychallanAndInvoice";
 
 export default function DeliveryChallan() {
   const [productsOpen, setProductsOpen] = React.useState(false);
@@ -314,32 +324,32 @@ export default function DeliveryChallan() {
                 </Container>
             </Box>
 
-        <FeatureDeliveryChallan />
+      <FeatureDeliveryChallan />
 
-        <AdvanceFeatureDeliveryChallan />
+      <AdvanceFeatureDeliveryChallan />
 
-        
+      <UserFeedbacks />
+
+      {/* high rated images section */}
+
+      <ApprovedSoftware />
+
+      <DeliveryChallanFaQ />
+
+      <BusinessSoftware />
+
+      <InvoiceGeneratorAutomate />
+
+      <OnlineDeliveryChallanCreate />
+      
+      <ElementsOFDeliveryChallan />
+
+      <DeliveryChallanGroup />
+
+      <DiffChallanVSinvoice />
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      
 
         {/* Mobile Drawer Menu */}
             <Drawer
