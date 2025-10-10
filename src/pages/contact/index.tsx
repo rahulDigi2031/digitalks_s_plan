@@ -26,7 +26,7 @@ const contactpage = () => {
    <>
 
    <header>
-   <AppBar position="fixed" elevation={0} sx={{ bgcolor: "#6A36CD", zIndex: 1200 , mb:2 }}>
+        <AppBar position="fixed" elevation={0} sx={{ bgcolor: "#6A36CD", zIndex: 1200 , mb:2 }}>
             <Container maxWidth="xl">
             <Toolbar sx={{ 
               minHeight: 64, 
@@ -210,8 +210,6 @@ const contactpage = () => {
       >
         <SignUp />
       </Box>
-
-     
     </Box>
 
     < footer>
@@ -307,8 +305,7 @@ const contactpage = () => {
                 textTransform: "none",
                 boxShadow: "none",
                 "&:hover": { boxShadow: "none", opacity: 0.95 },
-              }}
-            >
+              }} >
               Register
             </Button>
             <Button variant="outlined" sx={{ flex: 1, textTransform: "none" }}>Login</Button>

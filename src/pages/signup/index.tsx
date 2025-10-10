@@ -83,7 +83,7 @@ const SignUp = () => {
           }}
           startIcon={
             <img
-              src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+              src="/google.png"
               alt="Google"
               width={20}
               height={20}

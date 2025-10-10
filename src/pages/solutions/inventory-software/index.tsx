@@ -1,7 +1,5 @@
 "use client";
 
-import { useRouter } from "next/router";
-import React from "react";
 import {
   AppBar,
   Box,
@@ -11,7 +9,6 @@ import {
   DialogTitle,
   Divider,
   Drawer,
-  IconButton,
   List,
   ListItemButton,
   Stack,
@@ -20,22 +17,15 @@ import {
 } from "@mui/material";
 import { motion } from "framer-motion";
 import { Button } from "@mui/material";
-import Link from "next/link";
-import Image from "next/image";
+import { IconButton } from "@mui/material";
 import { Menu as MenuIcon, Close as CloseIcon } from "@mui/icons-material";
 import { Avatar } from "@mui/material";
-import AboutSalesLead from "./aboutSalesLead";
-import SalesWorkFlow from "./salesWorkflow";
-import UserFeedbacks from "@/pages/templates/delivery-challan-format/happyUsersfeedback";
-import ApprovedSoftware from "@/pages/templates/delivery-challan-format/highratedsoftwareimage";
-import SalesCRMdesigning from "./salesCRMDesigning";
-import Footer from "../../../../Components/footer";
-import InvestorsSales from "./investorsSales";
-import SalesFaq from "./salesFaq";
-import BasicSalesCRM from "./basicSalesCRM";
-import CrmKeyfeatures from "./basicSalesCRM/crmKeyfeatures";
+import React from "react";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import Image from "next/image";
 
-export default function SaleCRMFormat() {
+export default function InventorySoftwarePage() {
   const [productsOpen, setProductsOpen] = React.useState(false);
   const [accountOpen, setAccountOpen] = React.useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
@@ -51,7 +41,7 @@ export default function SaleCRMFormat() {
 
   return (
     <>
-      <Box>
+      <Box sx={{}}>
         <header>
           <AppBar
             position="fixed"
@@ -223,10 +213,10 @@ export default function SaleCRMFormat() {
 
         <main>
           {/* Hero Section */}
-        <Box
+          <Box
             sx={{
               bgcolor: "#7C3DDA",
-              pt: { xs: 15, md: 22 },
+              pt: { xs: 15, md: 18 },
               pb: { xs: 6, md: 10 },
             }}
           >
@@ -252,7 +242,7 @@ export default function SaleCRMFormat() {
                       letterSpacing: -0.5,
                     }}
                   >
-                    Best Sales CRM Software
+                    Inventory Management Software for Businesses
                   </Typography>
                   <Typography
                     sx={{
@@ -261,9 +251,26 @@ export default function SaleCRMFormat() {
                       fontSize: { xs: 16, md: 18 },
                     }}
                   >
-                    Streamline Your Sales Process With Comprehensive Sales CRM
-                    More Powerful Than Excel | Easier Than Enterprise Solutions
+                    Stock Management | Warehouse Management | Batch-wise and Serial No. wise Tracking | Inventory Reports | Automated Bookeeping
                   </Typography>
+                 <Box sx={{mt:3 , display:"flex" , gap:2}}>
+                         <Button
+                    onClick={() => setOpen(true)}
+                    variant="contained"
+                    sx={{
+                      mt: 4,
+                      px: 3,
+                      py: 1.25,
+                      textTransform: "none",
+                      fontWeight: 700,
+                      background: "white",
+                      color: "black",
+                      boxShadow: "none",
+                     
+                    }} >
+                    Start For Free
+                  </Button>
+                        
                   <Button
                     onClick={() => setOpen(true)}
                     variant="contained"
@@ -278,9 +285,20 @@ export default function SaleCRMFormat() {
                       "&:hover": { background: "#C7006B", boxShadow: "none" },
                     }}
                   >
-                    Get started
+                    Book a Free Demo
                   </Button>
+                 </Box>
+                  <Typography
+                    sx={{
+                      mt: 3,
+                      color: "rgba(255,255,255,0.9)",
+                      fontSize: { xs: 16, md: 18 },
+                    }}
+                  >
+                 ⭐Rated 4.8 based on 7897+ ratings with 100k+ businesses in India
+                  </Typography>
                 </Box>
+
 
                 {/* Right - Collage */}
                 <Box
@@ -294,51 +312,17 @@ export default function SaleCRMFormat() {
                   }}
                 >
                   <Image
-                    src="/crm.webp"
+                    src="/inventory.webp"
                     alt="Person"
                     fill
                     style={{ objectFit: "contain" }}
                   />
                 </Box>
-
               </Box>
-
             </Container>
-        </Box>
+          </Box>
 
-        <Box sx={{bgcolor:"#E9E0F8" , width:"100%" , height:"80px"}}>
-                <Container maxWidth="lg" sx={{display:"flex" , justifyContent:"space-evenly" , alignItems:"center" , height:"60px"}}>
-                   <Typography sx={{ mt: 3,color: "black", fontSize: { xs: 16, md: 16 },}}>
-                        Trusted by 150k+ sales reps, entrepreneurs, agencies, and freelancers across 178 countries
-                   </Typography>
-                </Container>
-        </Box>
-            {/* About section */}
-        <AboutSalesLead />
-
-        <Box sx={{bgcolor:"#E9E0F8" , width:"100%" , height:"70px"}}>
-            <Container maxWidth="lg" sx={{height:"70px" , display:"flex" , justifyContent:"center" , alignItems:"center"}}>
-                <Typography variant="body1">
-                    Rated ⭐ 4.8/5 based on 11700+ Ratings
-                </Typography>
-            </Container>
-        </Box>
-
-        <SalesWorkFlow /> 
-
-        <UserFeedbacks />  
-
-        <ApprovedSoftware />   
-
-        <SalesCRMdesigning />  
-
-        <InvestorsSales />  
-
-        <SalesFaq /> 
-
-        <BasicSalesCRM /> 
-
-        <CrmKeyfeatures />
+            {/* Dialog for "Create Quotation" */}
 
 
 
@@ -346,11 +330,8 @@ export default function SaleCRMFormat() {
 
 
 
-
-      {/* drawers and dialog Boxes below-side */}
-
-       {/* Mobile Drawer Menu */}
-          <Drawer
+         {/* Mobile Drawer Menu */}
+            <Drawer
                     anchor="right"
                     open={mobileMenuOpen}
                     onClose={() => setMobileMenuOpen(false)}
@@ -447,10 +428,10 @@ export default function SaleCRMFormat() {
                             </Button>
                         </Box>
                     </Box>
-          </Drawer>
+            </Drawer>
 
-        {/* Products Dialog */}
-          <Dialog open={productsOpen} onClose={() => setProductsOpen(false)} maxWidth="md" fullWidth>
+                {/* Products Dialog */}
+            <Dialog open={productsOpen} onClose={() => setProductsOpen(false)} maxWidth="md" fullWidth>
                     <DialogTitle sx={{ fontWeight: 700 }}>Products</DialogTitle>
                     <DialogContent dividers>
                         <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' }, gap: 3 }}>
@@ -509,10 +490,10 @@ export default function SaleCRMFormat() {
                             </Box>
                         </Box>
                     </DialogContent>
-          </Dialog>
+            </Dialog>
 
-        {/* Account Dialog (Avatar/Register click) */}
-          <Dialog open={accountOpen} onClose={() => setAccountOpen(false)} maxWidth="xs" fullWidth>
+                {/* Account Dialog (Avatar/Register click) */}
+            <Dialog open={accountOpen} onClose={() => setAccountOpen(false)} maxWidth="xs" fullWidth>
                     <DialogContent sx={{ py: 3 }}>
                         <Stack direction="row" spacing={2} alignItems="center" sx={{ mb: 2 }}>
                             <Avatar sx={{ bgcolor: "#A78BFA" }} />
@@ -538,16 +519,9 @@ export default function SaleCRMFormat() {
                             <Button variant="outlined" sx={{ flex: 1, textTransform: "none" }} onClick={() => router.push('/loginform')}>Login</Button>
                         </Stack>
                     </DialogContent>
-          </Dialog>
-                  
+            </Dialog>
 
         </main>
-
-
-
-        <footer>
-            <Footer />
-        </footer>
       </Box>
     </>
   );

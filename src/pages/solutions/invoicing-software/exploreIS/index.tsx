@@ -98,8 +98,7 @@ export default function ExploreinvoiceSoftware(){
                                 lineHeight: 1.6,
                                 maxWidth: '900px',
                                 mx: 'auto'
-                            }}
-                        >
+                            }} >
                             Refrens is more than just invoicing software. It's a complete business management solution that brings invoicing, billing, accounting, GST 
                             compliance, inventory, sales and finance operations together. With automation, robust security, and a user-friendly interface, Refrens 
                             eliminates the need for multiple software. Whether you need to send invoices, track payments, or stay GST-compliant, Refrens invoicing 

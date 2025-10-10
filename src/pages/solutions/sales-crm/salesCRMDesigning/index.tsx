@@ -1,128 +1,145 @@
-'use client'
+'use client';
 
-import { Box, Container, Typography, Button } from "@mui/material"
-import Image from "next/image"
+import React from 'react';
+import {
+  Box,
+  Container,
+  Typography,
+  Button,
+  List,
+  ListItem,
+  ListItemIcon,
+} from '@mui/material';
+import Image from 'next/image';
 
-export default function SalesCRMdesigning(){
-    return(
-       <>
-         <Box sx={{bgcolor:'#F7F9FA' , width:"100%"}}>
-            <Container maxWidth="lg">
-                <Box sx={{ py: 4 }}>
-                    <Typography variant="h4" sx={{ fontWeight: 'bold', textAlign: 'center', mb: 2 }}>
-                        Sales CRM designed to help you close deals faster
-                    </Typography>
-                    <Typography variant="h6" sx={{ textAlign: 'center', color: 'text.secondary', mb: 4 }}>
-                        Consolidate your sales process with Refrens
-                    </Typography>
-                    
-                    {/* Automated Lead Capture Section */}
-                    <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center', gap: 3, mb: 4 }}>
-                        <Box sx={{ flex: 1 }}>
-                            <Image src="/automated-lead-capture-left.webp" alt="Automated Lead Capture Left" width={300} height={400} style={{ width: '100%', height: 'auto' }} />
-                        </Box>
-                        <Box sx={{ flex: 2, textAlign: 'center' }}>
-                            <Typography variant="h5" sx={{ fontWeight: '600', mb: 2 }}>
-                                Automated Lead Capture
-                            </Typography>
-                            <Typography variant="body1" sx={{ color: 'text.secondary', mb: 3 }}>
-                                Automate lead capture, integrate web forms to capture leads directly into your CRM.
-                            </Typography>
-                        </Box>
-                        <Box sx={{ flex: 1 }}>
-                            <Image src="/lead-manager-right.webp" alt="Lead Manager" width={300} height={400} style={{ width: '100%', height: 'auto' }} />
-                        </Box>
-                    </Box>
-                    <Box sx={{ display: 'flex', justifyContent: 'center', mb: 6 }}>
-                        <Button variant="contained" sx={{ textTransform: 'none', bgcolor: '#E2007B', px: 4, py: 1 }}>
-                            Get Started
-                        </Button>
-                    </Box>
+export default function SalesCRMdesigning() {
+  const featureImages: string[] = [
+    '/sales01.webp',
+    '/sales02.webp',
+    '/sales03.webp',
+    '/sales04.webp',
+    '/sales05.webp',
+  ];
 
-                    {/* Centralized Communication Section */}
-                    <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center', gap: 3, mb: 4 }}>
-                        <Box sx={{ flex: 1 }}>
-                            <Image src="/centralized-comm-left.webp" alt="Centralized Communication Left" width={300} height={400} style={{ width: '100%', height: 'auto' }} />
-                        </Box>
-                        <Box sx={{ flex: 2 }}>
-                            <Typography variant="h5" sx={{ fontWeight: '600', mb: 2 }}>
-                                Centralized Communication for Seamless Collaboration
-                            </Typography>
-                            <Typography variant="body1" sx={{ color: 'text.secondary', mb: 3 }}>
-                                Eliminate the need for multiple apps. Keep everyone in the loop with centralized communication.
-                            </Typography>
-                            <Image src="/chat-bubble.webp" alt="Chat Bubble" width={200} height={150} style={{ width: '100%', height: 'auto', display: 'block', }} />
-                        </Box>
-                    </Box>
-                    <Box sx={{ display: 'flex', justifyContent: 'center', mb: 6 }}>
-                        <Button variant="contained" sx={{ textTransform: 'none', bgcolor: '#E2007B', px: 4, py: 1 }}>
-                            Get Started
-                        </Button>
-                    </Box>
+  const features = [
+    {
+      title: 'Automated Lead Capture',
+      points: [
+        'Let us do the heavy lifting with lead capture.',
+        'Integrate web forms to capture leads directly into your CRM.',
+        'Watch leads seamlessly flow into your CRM with ease.',
+      ],
+    },
+    {
+      title: 'Centralized Communication for Seamless Collaboration',
+      points: [
+        'Eliminate the need for multiple apps and inboxes.',
+        'Keep all your essential messages organized and easily accessible.',
+        'Enable better team collaboration in one unified platform.',
+      ],
+    },
+    {
+      title: 'Stress-Free Follow-Ups',
+      points: [
+        'Stay on track with automated follow-up reminders.',
+        'Never miss a lead with your personal follow-up guardian angel.',
+        'Ensure consistent communication with your prospects.',
+      ],
+    },
+    {
+      title: 'Sales Management Simplified',
+      points: [
+        'Handle leads, communicate with prospects, and manage payments.',
+        'Send quotations, create invoices, and collect payments all in one place.',
+        'Simplify your sales process and boost efficiency.',
+      ],
+    },
+    {
+      title: 'Capture Indiamart Leads into Refrens Automatically',
+      points: [
+        'Automatically connect your Indiamart account to capture all inquiries.',
+        'Integrate WhatsApp messages, emails, quotations, and payments effortlessly.',
+        'Save time and streamline your lead management process.',
+      ],
+    },
+  ];
 
-                    {/* Stress Free Follow-ups Section */}
-                    <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center', gap: 3, mb: 4 }}>
-                        <Box sx={{ flex: 1 }}>
-                            <Image src="/stress-free-followups-left.webp" alt="Stress Free Follow-ups Left" width={300} height={400} style={{ width: '100%', height: 'auto' }} />
-                        </Box>
-                        <Box sx={{ flex: 2 }}>
-                            <Typography variant="h5" sx={{ fontWeight: '600', mb: 2 }}>
-                                Stress Free Follow-ups
-                            </Typography>
-                            <Typography variant="body1" sx={{ color: 'text.secondary', mb: 3 }}>
-                                Set up automated follow-up reminders from Refrens so you never miss a lead.
-                            </Typography>
-                            <Image src="/activity-log.webp" alt="Activity Log" width={200} height={150} style={{ width: '100%', height: 'auto', display: 'block', }} />
-                        </Box>
-                    </Box>
-                    <Box sx={{ display: 'flex', justifyContent: 'center', mb: 6 }}>
-                        <Button variant="contained" sx={{ textTransform: 'none', bgcolor: '#E2007B', px: 4, py: 1 }}>
-                            Get Started
-                        </Button>
-                    </Box>
+  return (
+    <>
+      <main>
+        <Container maxWidth="lg">
+          {/* Heading */}
+          <Box sx={{ textAlign: 'center', mb: { xs: 5, md: 8 } }}>
+            <Typography variant="h4" sx={{ fontWeight: 800, mb: 1 }}>
+              Sales CRM Designed to Help You Close Deals Faster
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              Consolidate your sales process with Refrens
+            </Typography>
+          </Box>
 
-                    {/* Sales Management Simplified Section */}
-                    <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center', gap: 3, mb: 4 }}>
-                        <Box sx={{ flex: 2 }}>
-                            <Typography variant="h5" sx={{ fontWeight: '600', mb: 2 }}>
-                                Sales Management Simplified
-                            </Typography>
-                            <Typography variant="body1" sx={{ color: 'text.secondary', mb: 3 }}>
-                                Handle leads, communicate with prospects, send quotations &amp; collect payments all in one place.
-                            </Typography>
-                        </Box>
-                        <Box sx={{ flex: 1 }}>
-                            <Image src="/sales-pipeline.webp" alt="Sales Pipeline" width={400} height={300} style={{ width: '100%', height: 'auto' }} />
-                        </Box>
-                    </Box>
-                    <Box sx={{ display: 'flex', justifyContent: 'center', mb: 6 }}>
-                        <Button variant="contained" sx={{ textTransform: 'none', bgcolor: '#E2007B', px: 4, py: 1 }}>
-                            Get Started
-                        </Button>
-                    </Box>
-
-                    {/* Capture Indiamart Leads Section */}
-                    <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center', gap: 3, mb: 4 }}>
-                        <Box sx={{ flex: 1 }}>
-                            <Image src="/indiamart-integration.webp" alt="Indiamart Integration" width={300} height={400} style={{ width: '100%', height: 'auto' }} />
-                        </Box>
-                        <Box sx={{ flex: 2 }}>
-                            <Typography variant="h5" sx={{ fontWeight: '600', mb: 2 }}>
-                                Capture Indiamart Leads into Refrens
-                            </Typography>
-                            <Typography variant="body1" sx={{ color: 'text.secondary' }}>
-                                Automatically connect your Indiamart account to capture all inquiries, WhatsApp messages, email, quotations and payments.
-                            </Typography>
-                        </Box>
-                    </Box>
-                    <Box sx={{ display: 'flex', justifyContent: 'center', mb: 6 }}>
-                        <Button variant="contained" sx={{ textTransform: 'none', bgcolor: '#E2007B', px: 4, py: 1 }}>
-                            Get Started
-                        </Button>
-                    </Box>
+          {/* Feature Rows */}
+          {features.map((feature, idx) => {
+            const isAlt = idx % 2 === 1;
+            return (
+              <Box
+                key={feature.title}
+                sx={{
+                  display: 'flex',
+                  flexDirection: { xs: 'column', md: 'row' },
+                  gap: 6,
+                  alignItems: 'center',
+                  mb: { xs: 6, md: 10 },
+                }}
+              >
+                {/* Image */}
+                <Box sx={{ flex: 1, order: { xs: 1, md: isAlt ? 2 : 1 } as any }}>
+                  <Box
+                    component="img"
+                    src={featureImages[idx] ?? `/feature-img-${idx + 1}.webp`}
+                    alt={feature.title}
+                    style={{
+                      maxWidth: '100%',
+                      maxHeight: '100%',
+                      objectFit: 'contain',
+                    }}
+                  />
                 </Box>
-            </Container>
-         </Box>
-       </> 
-    )
+                {/* Text */}
+                <Box sx={{ flex: 1, order: { xs: 2, md: isAlt ? 1 : 2 } as any }}>
+                  <Typography variant="h6" sx={{ fontWeight: 700, mb: 1.5 }}>
+                    {feature.title}
+                  </Typography>
+                  <List dense>
+                    {feature.points.map((point, i) => (
+                      <ListItem key={i} sx={{ pl: 0 }}>
+                        <ListItemIcon sx={{ minWidth: 32 }}>
+                          {/* Optionally use an icon like CheckCircleIcon */}
+                        </ListItemIcon>
+                        <Typography variant="body2" color="text.secondary">
+                          {point}
+                        </Typography>
+                      </ListItem>
+                    ))}
+                  </List>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      textTransform: 'none',
+                      mt: 2,
+                      cursor: 'pointer',
+                      color: '#8A59F5',
+                      fontWeight:800,
+                    }}
+                  >
+                    Get Started 
+                  </Typography>
+                </Box>
+              </Box>
+            );
+          })}
+        </Container>
+      </main>
+    </>
+  );
 }
