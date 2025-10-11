@@ -24,6 +24,20 @@ import React from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
+import ExpertInventoryPage from "./expertInventory";
+import BenefitsOfInventoryMS from "./benefitsOFInventoryMS";
+import Entrepreneurs from "./entrepreneurs";
+import WhyChooseOurInventoryMS from "./whychooseOurInventoryMS";
+import { InventoryManagementForIndustries } from "./InventoryManagement";
+import InventoryUserFeedback from "./inventoryuserFeedback";
+import InventoryNewpricing from "./inventorynewPrices";
+import InventoryManagementFaQ from "./InventoryMsFAQ";
+import AboutInventoryMSPage from "./aboutInventoryMS";
+import InventoryCommonterms from "./InventoryCommonterms";
+import UseCaseOFInventoryMS from "./useCaseOFInventoryMS";
+import IndustryWiseInventory from "./industryWiseInventory";
+import InventoryKeyfeatures from "./inventoryKeyfeatures";
+import Footer from "../../../../Components/footer";
 
 export default function InventorySoftwarePage() {
   const [productsOpen, setProductsOpen] = React.useState(false);
@@ -251,43 +265,45 @@ export default function InventorySoftwarePage() {
                       fontSize: { xs: 16, md: 18 },
                     }}
                   >
-                    Stock Management | Warehouse Management | Batch-wise and Serial No. wise Tracking | Inventory Reports | Automated Bookeeping
+                    Stock Management | Warehouse Management | Batch-wise and
+                    Serial No. wise Tracking | Inventory Reports | Automated
+                    Bookeeping
                   </Typography>
-                 <Box sx={{mt:3 , display:"flex" , gap:2}}>
-                         <Button
-                    onClick={() => setOpen(true)}
-                    variant="contained"
-                    sx={{
-                      mt: 4,
-                      px: 3,
-                      py: 1.25,
-                      textTransform: "none",
-                      fontWeight: 700,
-                      background: "white",
-                      color: "black",
-                      boxShadow: "none",
-                     
-                    }} >
-                    Start For Free
-                  </Button>
-                        
-                  <Button
-                    onClick={() => setOpen(true)}
-                    variant="contained"
-                    sx={{
-                      mt: 4,
-                      px: 3,
-                      py: 1.25,
-                      textTransform: "none",
-                      fontWeight: 700,
-                      background: "#DF007A",
-                      boxShadow: "none",
-                      "&:hover": { background: "#C7006B", boxShadow: "none" },
-                    }}
-                  >
-                    Book a Free Demo
-                  </Button>
-                 </Box>
+                  <Box sx={{ mt: 3, display: "flex", gap: 2 }}>
+                    <Button
+                      onClick={() => setOpen(true)}
+                      variant="contained"
+                      sx={{
+                        mt: 4,
+                        px: 3,
+                        py: 1.25,
+                        textTransform: "none",
+                        fontWeight: 700,
+                        background: "white",
+                        color: "black",
+                        boxShadow: "none",
+                      }}
+                    >
+                      Start For Free
+                    </Button>
+
+                    <Button
+                      onClick={() => setOpen(true)}
+                      variant="contained"
+                      sx={{
+                        mt: 4,
+                        px: 3,
+                        py: 1.25,
+                        textTransform: "none",
+                        fontWeight: 700,
+                        background: "#DF007A",
+                        boxShadow: "none",
+                        "&:hover": { background: "#C7006B", boxShadow: "none" },
+                      }}
+                    >
+                      Book a Free Demo
+                    </Button>
+                  </Box>
                   <Typography
                     sx={{
                       mt: 3,
@@ -295,20 +311,52 @@ export default function InventorySoftwarePage() {
                       fontSize: { xs: 16, md: 18 },
                     }}
                   >
-                 ⭐Rated 4.8 based on 7897+ ratings with 100k+ businesses in India
+                    ⭐Rated 4.8 based on 7897+ ratings with 100k+ businesses in
+                    India
                   </Typography>
                 </Box>
-
 
                 {/* Right - Collage */}
                 <Box
                   sx={{
-                    position: { xs: "relative", md: "absolute" }, // mobile pe relative, desktop pe absolute
-                    top: { md: 80 },
-                    right: { md: 380 },
-                    width: { xs: "100%", md: 450 },
-                    height: { xs: 220, md: 400 },
-                    mx: { xs: "auto", md: 0 }, // mobile me center align
+                    position: {
+                      xs: "relative",
+                      sm: "relative",
+                      md: "absolute",
+                      lg: "absolute",
+                      xl: "absolute",
+                    }, // Mobile and tablet: relative; Desktop and up: absolute
+                    top: {
+                      md: 100,
+                      lg: 80,
+                      xl: 100,
+                    },
+                    right: {
+                      md: 50,
+                      lg: 300,
+                      xl: 380,
+                    },
+                    width: {
+                      xs: "100%",
+                      sm: "80%",
+                      md: 350,
+                      lg: 420,
+                      xl: 450,
+                    },
+                    height: {
+                      xs: 180,
+                      sm: 220,
+                      md: 300,
+                      lg: 350,
+                      xl: 400,
+                    },
+                    mx: {
+                      xs: "auto",
+                      sm: "auto",
+                      md: 0,
+                      lg: 0,
+                      xl: 0,
+                    }, // Center on mobile/tablet, no margin on desktop
                   }}
                 >
                   <Image
@@ -322,206 +370,420 @@ export default function InventorySoftwarePage() {
             </Container>
           </Box>
 
-            {/* Dialog for "Create Quotation" */}
+          <ExpertInventoryPage />
 
+          <BenefitsOfInventoryMS />
 
+          <Entrepreneurs />
 
+          <WhyChooseOurInventoryMS />
 
+          <InventoryManagementForIndustries />
 
+          <InventoryUserFeedback />
 
+          <InventoryNewpricing />
 
-         {/* Mobile Drawer Menu */}
-            <Drawer
-                    anchor="right"
-                    open={mobileMenuOpen}
-                    onClose={() => setMobileMenuOpen(false)}
-                    sx={{
-                        '& .MuiDrawer-paper': {
-                            width: 280,
-                            bgcolor: '#fff',
-                        },
-                    }}
+          <InventoryManagementFaQ />
+
+          <AboutInventoryMSPage />
+
+          <InventoryCommonterms />
+
+          <UseCaseOFInventoryMS />
+
+          <IndustryWiseInventory />
+
+          <InventoryKeyfeatures />
+
+          {/* Dialog for "Create Quotation" */}
+
+          {/* Mobile Drawer Menu */}
+          <Drawer
+            anchor="right"
+            open={mobileMenuOpen}
+            onClose={() => setMobileMenuOpen(false)}
+            sx={{
+              "& .MuiDrawer-paper": {
+                width: 280,
+                bgcolor: "#fff",
+              },
+            }}
+          >
+            <Box sx={{ p: 2 }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  mb: 3,
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  sx={{ fontWeight: 700, color: "#7C3DDA" }}
                 >
-                    <Box sx={{ p: 2 }}>
-                        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
-                            <Typography variant="h6" sx={{ fontWeight: 700, color: '#7C3DDA' }}>Menu</Typography>
-                            <IconButton onClick={() => setMobileMenuOpen(false)}>
-                                <CloseIcon />
-                            </IconButton>
-                        </Box>
+                  Menu
+                </Typography>
+                <IconButton onClick={() => setMobileMenuOpen(false)}>
+                  <CloseIcon />
+                </IconButton>
+              </Box>
 
-                        <Divider sx={{ mb: 2 }} />
+              <Divider sx={{ mb: 2 }} />
 
-                        <List>
-                            <ListItemButton
-                                onClick={() => {
-                                    setProductsOpen(true);
-                                    setMobileMenuOpen(false);
-                                }}
-                                sx={{
-                                    borderRadius: 1,
-                                    mb: 1,
-                                    '&:hover': { bgcolor: 'rgba(124, 61, 218, 0.1)' }
-                                }}
-                            >
-                                <Typography sx={{ fontWeight: 500 }}>Products</Typography>
-                            </ListItemButton>
+              <List>
+                <ListItemButton
+                  onClick={() => {
+                    setProductsOpen(true);
+                    setMobileMenuOpen(false);
+                  }}
+                  sx={{
+                    borderRadius: 1,
+                    mb: 1,
+                    "&:hover": { bgcolor: "rgba(124, 61, 218, 0.1)" },
+                  }}
+                >
+                  <Typography sx={{ fontWeight: 500 }}>Products</Typography>
+                </ListItemButton>
 
-                            <ListItemButton
-                                component={Link}
-                                href="/plans"
-                                sx={{
-                                    borderRadius: 1,
-                                    mb: 1,
-                                    '&:hover': { bgcolor: 'rgba(124, 61, 218, 0.1)' }
-                                }}
-                            >
-                                <Typography sx={{ fontWeight: 500 }}>Pricing</Typography>
-                            </ListItemButton>
-                        </List>
+                <ListItemButton
+                  component={Link}
+                  href="/plans"
+                  sx={{
+                    borderRadius: 1,
+                    mb: 1,
+                    "&:hover": { bgcolor: "rgba(124, 61, 218, 0.1)" },
+                  }}
+                >
+                  <Typography sx={{ fontWeight: 500 }}>Pricing</Typography>
+                </ListItemButton>
+              </List>
 
-                        <Divider sx={{ my: 2 }} />
+              <Divider sx={{ my: 2 }} />
 
-                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                            <Button
-                                variant="contained"
-                                onClick={() => {
-                                    setAccountOpen(true);
-                                    setMobileMenuOpen(false);
-                                }}
-                                sx={{
-                                    textTransform: "none",
-                                    background: "#DF007A",
-                                    boxShadow: "none",
-                                    borderRadius: 2,
-                                    py: 1.5,
-                                    fontWeight: 600,
-                                    "&:hover": {
-                                        boxShadow: "none",
-                                        opacity: 0.95,
-                                        background: "#C7006B"
-                                    },
-                                }}
-                            >
-                                Register
-                            </Button>
+              <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                <Button
+                  variant="contained"
+                  onClick={() => {
+                    setAccountOpen(true);
+                    setMobileMenuOpen(false);
+                  }}
+                  sx={{
+                    textTransform: "none",
+                    background: "#DF007A",
+                    boxShadow: "none",
+                    borderRadius: 2,
+                    py: 1.5,
+                    fontWeight: 600,
+                    "&:hover": {
+                      boxShadow: "none",
+                      opacity: 0.95,
+                      background: "#C7006B",
+                    },
+                  }}
+                >
+                  Register
+                </Button>
 
-                            <Button
-                                variant="outlined"
-                                onClick={() => {
-                                    setAccountOpen(true);
-                                    setMobileMenuOpen(false);
-                                }}
-                                sx={{
-                                    textTransform: "none",
-                                    borderColor: "#7C3DDA",
-                                    color: "#7C3DDA",
-                                    py: 1.5,
-                                    fontWeight: 500,
-                                    "&:hover": {
-                                        borderColor: "#6B46C1",
-                                        backgroundColor: "rgba(124, 61, 218, 0.1)"
-                                    },
-                                }}
-                            >
-                                Login
-                            </Button>
-                        </Box>
+                <Button
+                  variant="outlined"
+                  onClick={() => {
+                    setAccountOpen(true);
+                    setMobileMenuOpen(false);
+                  }}
+                  sx={{
+                    textTransform: "none",
+                    borderColor: "#7C3DDA",
+                    color: "#7C3DDA",
+                    py: 1.5,
+                    fontWeight: 500,
+                    "&:hover": {
+                      borderColor: "#6B46C1",
+                      backgroundColor: "rgba(124, 61, 218, 0.1)",
+                    },
+                  }}
+                >
+                  Login
+                </Button>
+              </Box>
+            </Box>
+          </Drawer>
+
+          {/* Products Dialog */}
+          <Dialog
+            open={productsOpen}
+            onClose={() => setProductsOpen(false)}
+            maxWidth="md"
+            fullWidth
+          >
+            <DialogTitle sx={{ fontWeight: 700 }}>Products</DialogTitle>
+            <DialogContent dividers>
+              <Box
+                sx={{
+                  display: "grid",
+                  gridTemplateColumns: { xs: "1fr", md: "repeat(3, 1fr)" },
+                  gap: 3,
+                }}
+              >
+                <Box>
+                  <Stack
+                    direction="row"
+                    spacing={1.5}
+                    alignItems="center"
+                    sx={{ mb: 1 }}
+                  >
+                    <Box
+                      sx={{
+                        width: 34,
+                        height: 34,
+                        borderRadius: 1,
+                        bgcolor: "#EDE7FF",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        border: "1px solid #D7C9FF",
+                      }}
+                    >
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M20.731 7.0043C20.907 7.30905 20.9998 7.65476 21 8.00672V16.0061C20.9988 16.3562 20.9055 16.6997 20.7295 17.0023C20.5534 17.3048 20.3009 17.5556 19.9971 17.7295L13.0029 21.7292C12.6984 21.9066 12.3523 22 12 22M20.731 7.0043C20.5549 6.69956 20.3019 6.44649 19.9971 6.27051L13.0029 2.2708C12.6984 2.09344 12.3523 2 12 2C11.6477 2 11.3016 2.09344 10.9971 2.2708L4.00286 6.27051C3.69814 6.44649 3.44506 6.69956 3.26904 7.0043M20.731 7.0043L11.9988 12.045M3.26904 7.0043C3.09301 7.30905 3.00023 7.65476 3 8.00672V16.0061C3.00118 16.3562 3.09448 16.6997 3.27053 17.0023C3.44657 17.3048 3.69915 17.5556 4.00286 17.7295L10.9971 21.7292C11.3016 21.9066 11.6477 22 12 22M3.26904 7.0043L11.9988 12.045M12 22L11.9988 12.045"
+                          stroke="#6B46C1"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                        />
+                      </svg>
                     </Box>
-            </Drawer>
+                    <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
+                      Solutions
+                    </Typography>
+                  </Stack>
+                  <List dense>
+                    {[
+                      "Cloud Accounting Software",
+                      "AI Accounting Agent",
+                      "GST Billing Software",
+                      "Invoicing Software",
+                      "Quotation Software",
+                      "e-Invoicing Software",
+                      "eWay Bill Software",
+                      "Inventory Software",
+                      "Invoicing API",
+                      "Sales CRM",
+                      "Lead Management Software",
+                      "Download Mobile App",
+                    ].map((label) => (
+                      <ListItemButton
+                        key={label}
+                        component={Link}
+                        href={`/solutions/${toSlug(label)}`}
+                      >
+                        {label}
+                      </ListItemButton>
+                    ))}
+                  </List>
+                </Box>
+                <Box>
+                  <Stack
+                    direction="row"
+                    spacing={1.5}
+                    alignItems="center"
+                    sx={{ mb: 1 }}
+                  >
+                    <Box
+                      sx={{
+                        width: 34,
+                        height: 34,
+                        borderRadius: 1,
+                        bgcolor: "#E9F7EC",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        border: "1px solid #CBEBD3",
+                      }}
+                    >
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          x="4"
+                          y="6"
+                          width="16"
+                          height="12"
+                          rx="2"
+                          stroke="#2E7D32"
+                          stroke-width="1.5"
+                        />
+                        <rect
+                          x="8"
+                          y="10"
+                          width="8"
+                          height="4"
+                          rx="1"
+                          stroke="#2E7D32"
+                          stroke-width="1.5"
+                        />
+                      </svg>
+                    </Box>
+                    <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
+                      Free Tools
+                    </Typography>
+                  </Stack>
+                  <List dense>
+                    {[
+                      "GST Invoice Maker",
+                      "Invoice Generator",
+                      "Quotation Generator",
+                      "Create Proforma Invoice",
+                      "Invoice Formats",
+                      "Create Purchase Order",
+                      "Create Delivery Challan",
+                      "Quotation Templates",
+                      "Commercial Invoice",
+                      "Consulting Invoice",
+                    ].map((label) => (
+                      <ListItemButton
+                        key={label}
+                        component={Link}
+                        href={`/tools/${toSlug(label)}`}
+                      >
+                        {label}
+                      </ListItemButton>
+                    ))}
+                  </List>
+                </Box>
+                <Box>
+                  <Stack
+                    direction="row"
+                    spacing={1.5}
+                    alignItems="center"
+                    sx={{ mb: 1 }}
+                  >
+                    <Box
+                      sx={{
+                        width: 34,
+                        height: 34,
+                        borderRadius: 1,
+                        bgcolor: "#E7F0FF",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        border: "1px solid #C8DEFF",
+                      }}
+                    >
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M6 10V6a2 2 0 0 1 2-2h8v6"
+                          stroke="#1E88E5"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                        />
+                        <rect
+                          x="4"
+                          y="10"
+                          width="16"
+                          height="10"
+                          rx="2"
+                          stroke="#1E88E5"
+                          stroke-width="1.5"
+                        />
+                      </svg>
+                    </Box>
+                    <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
+                      Categories
+                    </Typography>
+                  </Stack>
+                  <List dense>
+                    {[
+                      "SMBs",
+                      "Consultants",
+                      "Startups",
+                      "Chartered Accountant",
+                      "Export/Import Business",
+                      "Professional Services",
+                      "Freelancers/Self-Employed",
+                    ].map((label) => (
+                      <ListItemButton
+                        key={label}
+                        component={Link}
+                        href={`/categories/${toSlug(label)}`}
+                      >
+                        {label}
+                      </ListItemButton>
+                    ))}
+                  </List>
+                </Box>
+              </Box>
+            </DialogContent>
+          </Dialog>
 
-                {/* Products Dialog */}
-            <Dialog open={productsOpen} onClose={() => setProductsOpen(false)} maxWidth="md" fullWidth>
-                    <DialogTitle sx={{ fontWeight: 700 }}>Products</DialogTitle>
-                    <DialogContent dividers>
-                        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' }, gap: 3 }}>
-                            <Box>
-                                <Stack direction="row" spacing={1.5} alignItems="center" sx={{ mb: 1 }}>
-                                    <Box sx={{ width: 34, height: 34, borderRadius: 1, bgcolor: "#EDE7FF", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid #D7C9FF" }}>
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M20.731 7.0043C20.907 7.30905 20.9998 7.65476 21 8.00672V16.0061C20.9988 16.3562 20.9055 16.6997 20.7295 17.0023C20.5534 17.3048 20.3009 17.5556 19.9971 17.7295L13.0029 21.7292C12.6984 21.9066 12.3523 22 12 22M20.731 7.0043C20.5549 6.69956 20.3019 6.44649 19.9971 6.27051L13.0029 2.2708C12.6984 2.09344 12.3523 2 12 2C11.6477 2 11.3016 2.09344 10.9971 2.2708L4.00286 6.27051C3.69814 6.44649 3.44506 6.69956 3.26904 7.0043M20.731 7.0043L11.9988 12.045M3.26904 7.0043C3.09301 7.30905 3.00023 7.65476 3 8.00672V16.0061C3.00118 16.3562 3.09448 16.6997 3.27053 17.0023C3.44657 17.3048 3.69915 17.5556 4.00286 17.7295L10.9971 21.7292C11.3016 21.9066 11.6477 22 12 22M3.26904 7.0043L11.9988 12.045M12 22L11.9988 12.045" stroke="#6B46C1" stroke-width="1.5" stroke-linecap="round" />
-                                        </svg>
-                                    </Box>
-                                    <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>Solutions</Typography>
-                                </Stack>
-                                <List dense>
-                                    {["Cloud Accounting Software", "AI Accounting Agent", "GST Billing Software", "Invoicing Software", "Quotation Software", "e-Invoicing Software", "eWay Bill Software", "Inventory Software", "Invoicing API", "Sales CRM", "Lead Management Software", "Download Mobile App"].map((label) => (
-                                        <ListItemButton key={label} component={Link} href={`/solutions/${toSlug(label)}`}>
-                                            {label}
-                                        </ListItemButton>
-                                    ))}
-                                </List>
-                            </Box>
-                            <Box>
-                                <Stack direction="row" spacing={1.5} alignItems="center" sx={{ mb: 1 }}>
-                                    <Box sx={{ width: 34, height: 34, borderRadius: 1, bgcolor: "#E9F7EC", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid #CBEBD3" }}>
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <rect x="4" y="6" width="16" height="12" rx="2" stroke="#2E7D32" stroke-width="1.5" />
-                                            <rect x="8" y="10" width="8" height="4" rx="1" stroke="#2E7D32" stroke-width="1.5" />
-                                        </svg>
-                                    </Box>
-                                    <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>Free Tools</Typography>
-                                </Stack>
-                                <List dense>
-                                    {["GST Invoice Maker", "Invoice Generator", "Quotation Generator", "Create Proforma Invoice", "Invoice Formats", "Create Purchase Order", "Create Delivery Challan", "Quotation Templates", "Commercial Invoice", "Consulting Invoice"].map((label) => (
-                                        <ListItemButton key={label} component={Link} href={`/tools/${toSlug(label)}`}>
-                                            {label}
-                                        </ListItemButton>
-                                    ))}
-                                </List>
-                            </Box>
-                            <Box>
-                                <Stack direction="row" spacing={1.5} alignItems="center" sx={{ mb: 1 }}>
-                                    <Box sx={{ width: 34, height: 34, borderRadius: 1, bgcolor: "#E7F0FF", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid #C8DEFF" }}>
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M6 10V6a2 2 0 0 1 2-2h8v6" stroke="#1E88E5" stroke-width="1.5" stroke-linecap="round" />
-                                            <rect x="4" y="10" width="16" height="10" rx="2" stroke="#1E88E5" stroke-width="1.5" />
-                                        </svg>
-                                    </Box>
-                                    <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>Categories</Typography>
-                                </Stack>
-                                <List dense>
-                                    {["SMBs", "Consultants", "Startups", "Chartered Accountant", "Export/Import Business", "Professional Services", "Freelancers/Self-Employed"].map((label) => (
-                                        <ListItemButton key={label} component={Link} href={`/categories/${toSlug(label)}`}>
-                                            {label}
-                                        </ListItemButton>
-                                    ))}
-                                </List>
-                            </Box>
-                        </Box>
-                    </DialogContent>
-            </Dialog>
-
-                {/* Account Dialog (Avatar/Register click) */}
-            <Dialog open={accountOpen} onClose={() => setAccountOpen(false)} maxWidth="xs" fullWidth>
-                    <DialogContent sx={{ py: 3 }}>
-                        <Stack direction="row" spacing={2} alignItems="center" sx={{ mb: 2 }}>
-                            <Avatar sx={{ bgcolor: "#A78BFA" }} />
-                            <Box>
-                                <Typography sx={{ fontWeight: 700 }}>Hi User</Typography>
-                                <Typography variant="body2" color="text.secondary">Login/register to access your account</Typography>
-                            </Box>
-                        </Stack>
-                        <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-                            <Button
-                                variant="contained"
-                                sx={{
-                                    flex: 1,
-                                    background: "linear-gradient(90deg,#FF0B7B,#F89B29)",
-                                    textTransform: "none",
-                                    boxShadow: "none",
-                                    "&:hover": { boxShadow: "none", opacity: 0.95 },
-                                }}
-                                onClick={() => router.push('/signup')}
-                            >
-                                Register
-                            </Button>
-                            <Button variant="outlined" sx={{ flex: 1, textTransform: "none" }} onClick={() => router.push('/loginform')}>Login</Button>
-                        </Stack>
-                    </DialogContent>
-            </Dialog>
-
+          {/* Account Dialog (Avatar/Register click) */}
+          <Dialog
+            open={accountOpen}
+            onClose={() => setAccountOpen(false)}
+            maxWidth="xs"
+            fullWidth
+          >
+            <DialogContent sx={{ py: 3 }}>
+              <Stack
+                direction="row"
+                spacing={2}
+                alignItems="center"
+                sx={{ mb: 2 }}
+              >
+                <Avatar sx={{ bgcolor: "#A78BFA" }} />
+                <Box>
+                  <Typography sx={{ fontWeight: 700 }}>Hi User</Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Login/register to access your account
+                  </Typography>
+                </Box>
+              </Stack>
+              <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
+                <Button
+                  variant="contained"
+                  sx={{
+                    flex: 1,
+                    background: "linear-gradient(90deg,#FF0B7B,#F89B29)",
+                    textTransform: "none",
+                    boxShadow: "none",
+                    "&:hover": { boxShadow: "none", opacity: 0.95 },
+                  }}
+                  onClick={() => router.push("/signup")}
+                >
+                  Register
+                </Button>
+                <Button
+                  variant="outlined"
+                  sx={{ flex: 1, textTransform: "none" }}
+                  onClick={() => router.push("/loginform")}
+                >
+                  Login
+                </Button>
+              </Stack>
+            </DialogContent>
+          </Dialog>
         </main>
+
+        <footer>
+          <Footer />
+        </footer>
       </Box>
     </>
   );
